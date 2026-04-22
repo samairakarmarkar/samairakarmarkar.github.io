@@ -31,3 +31,29 @@ h1 {
 .buttons a:hover {
   background: #444;
 }
+.shelf {
+  display: flex;
+  justify-content: center;
+  margin-top: 60px;
+}
+
+.book {
+  width: 80px;
+  height: 200px;
+  margin: 10px;
+  background: linear-gradient(to bottom, #bcd, #89a);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  border-radius: 4px;
+  transition: transform 0.3s;
+}
+
+.book:hover {
+  transform: translateY(-10px);
+}
