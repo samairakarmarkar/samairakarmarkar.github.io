@@ -1,59 +1,74 @@
 body {
-  font-family: Arial, sans-serif;
-  background-color: #f7f7f7;
-  text-align: center;
   margin: 0;
+  font-family: Georgia, serif;
+  background: #f8f8f8;
+  color: #111;
 }
 
-.container {
-  margin-top: 100px;
+.hero {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-text {
+  max-width: 600px;
 }
 
 h1 {
-  font-size: 48px;
+  font-size: 56px;
+  font-weight: normal;
 }
 
-.buttons {
-  margin-top: 40px;
+p {
+  font-size: 18px;
+  line-height: 1.6;
 }
 
-.buttons a {
+.nav-buttons {
+  margin-top: 30px;
+}
+
+.nav-buttons a {
   display: inline-block;
-  margin: 10px;
-  padding: 12px 20px;
-  background: black;
-  color: white;
+  margin-right: 15px;
+  padding: 10px 16px;
+  border: 1px solid black;
   text-decoration: none;
-  border-radius: 6px;
+  color: black;
   transition: 0.3s;
 }
 
-.buttons a:hover {
-  background: #444;
+.nav-buttons a:hover {
+  background: black;
+  color: white;
 }
+
+/* BOOKSHELF */
+
 .shelf {
   display: flex;
   justify-content: center;
-  margin-top: 60px;
+  margin-top: 80px;
 }
 
 .book {
-  width: 80px;
-  height: 200px;
+  width: 90px;
+  height: 220px;
   margin: 10px;
-  background: linear-gradient(to bottom, #bcd, #89a);
+  background: #d9e3f0;
   display: flex;
   align-items: center;
   justify-content: center;
   writing-mode: vertical-rl;
-  text-orientation: mixed;
   text-decoration: none;
   color: black;
-  font-weight: bold;
-  border-radius: 4px;
-  transition: transform 0.3s;
+  border-radius: 6px;
+  transition: 0.3s;
 }
 
 .book:hover {
-  transform: translateY(-10px);
+  transform: translateY(-12px);
+  background: #b7c7e0;
 }
