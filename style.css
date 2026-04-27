@@ -20,13 +20,7 @@ html, body {
   padding: 0;
   color: var(--ink);
   font-family: "Playfair Display", "Cormorant Garamond", Georgia, serif;
-  background:
-    radial-gradient(circle at 15% 20%, rgba(255,255,255,0.6) 0 6%, transparent 9%),
-    radial-gradient(circle at 80% 15%, rgba(255,255,255,0.5) 0 5%, transparent 8%),
-    radial-gradient(circle at 70% 60%, rgba(255,255,255,0.4) 0 4%, transparent 7%),
-    radial-gradient(circle at 25% 75%, rgba(255,255,255,0.5) 0 5%, transparent 8%),
-    linear-gradient(180deg, var(--sky-top) 0%, var(--sky-bot) 100%);
-  background-attachment: fixed;
+  background: #c9dceb url('images/sky.png') center/cover no-repeat fixed;
   min-height: 100vh;
 }
 
@@ -45,22 +39,27 @@ a { color: inherit; }
 .nav a {
   display: inline-block;
   padding: 10px 22px;
-  background: #ffffff;
-  border: 1px solid var(--ink);
+  background: rgba(255, 255, 255, 0.45);
+  border: 1px solid rgba(26, 26, 26, 0.35);
   border-radius: 999px;
   text-decoration: none;
   font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
   font-size: 14px;
   letter-spacing: 0.02em;
   color: var(--ink);
-  transition: transform .18s ease, background .18s ease, color .18s ease;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  transition: transform .18s ease, background .18s ease, border-color .18s ease;
 }
 
-.nav a:hover,
-.nav a.active {
-  background: var(--ink);
-  color: #fff;
+.nav a:hover {
+  background: rgba(255, 255, 255, 0.7);
   transform: translateY(-2px);
+}
+
+.nav a.active {
+  background: rgba(255, 255, 255, 0.75);
+  border-color: rgba(26, 26, 26, 0.85);
 }
 
 /* ---------- Hero ---------- */
@@ -324,148 +323,129 @@ a { color: inherit; }
   border: 1px solid var(--ink);
 }
 
-/* ---------- Writing / Bookshelf ---------- */
+/* ---------- Writing / Bookshelf (face-out covers) ---------- */
 .shelf-wrap {
-  max-width: 980px;
+  max-width: 1040px;
   margin: 10px auto 0;
   position: relative;
+  padding: 0 12px;
 }
 
 .shelf {
-  position: relative;
-  background:
-    repeating-linear-gradient(
-      90deg,
-      var(--shelf) 0 40px,
-      var(--shelf-light) 40px 41px,
-      var(--shelf) 41px 80px,
-      var(--shelf-dark) 80px 81px
-    );
-  border-radius: 4px;
-  padding: 0 18px;
-  min-height: 260px;
-  display: flex;
-  align-items: flex-end;
-  gap: 10px;
-  flex-wrap: wrap;
-  box-shadow:
-    inset 0 8px 16px rgba(0,0,0,0.25),
-    0 12px 28px rgba(0,0,0,0.2);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 36px 28px;
+  padding: 30px 20px 50px;
+  justify-items: center;
 }
 
 .shelf-base {
-  height: 22px;
-  background: linear-gradient(180deg, var(--shelf-light), var(--shelf-dark));
-  border-radius: 0 0 4px 4px;
-  box-shadow: 0 18px 24px rgba(0,0,0,0.25);
-  margin-bottom: 40px;
+  height: 14px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.55), rgba(255,255,255,0.15));
+  border-radius: 2px;
+  box-shadow: 0 10px 22px rgba(90, 105, 125, 0.25);
+  margin: -10px auto 40px;
+  max-width: 1000px;
 }
 
 .book {
   position: relative;
-  width: 68px;
-  height: 230px;
-  margin-top: 18px;
-  border-radius: 3px 3px 2px 2px;
+  width: 190px;
+  height: 270px;
+  border-radius: 2px 6px 6px 2px;
   text-decoration: none;
-  color: #fff;
+  color: inherit;
   font-family: "Playfair Display", Georgia, serif;
-  box-shadow:
-    inset -6px 0 10px rgba(0,0,0,0.25),
-    inset 2px 0 4px rgba(255,255,255,0.15),
-    0 6px 12px rgba(0,0,0,0.25);
-  transition: transform .25s ease, margin-top .25s ease, box-shadow .25s ease;
-  overflow: hidden;
-  cursor: pointer;
+  padding: 28px 22px 22px 30px;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 16px 6px;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform .28s ease, box-shadow .28s ease;
+  cursor: pointer;
+  box-shadow:
+    -6px 0 0 rgba(0,0,0,0.12),
+    4px 10px 24px rgba(40, 55, 75, 0.28);
 }
 
-.book::before {
-  content: "";
-  position: absolute;
-  top: 10px; bottom: 10px;
-  left: 6px;
-  width: 2px;
-  background: rgba(255,255,255,0.35);
-  border-radius: 2px;
-}
-
+/* thin pages edge on the right */
 .book::after {
   content: "";
   position: absolute;
-  top: 14px; bottom: 14px;
-  right: 6px;
-  width: 2px;
-  background: rgba(0,0,0,0.2);
-  border-radius: 2px;
+  top: 6px; bottom: 6px; right: 2px;
+  width: 3px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.7), rgba(0,0,0,0.08));
+  border-radius: 1px;
+  opacity: 0.6;
 }
 
-.book .spine {
-  writing-mode: vertical-rl;
-  transform: rotate(180deg);
-  text-align: center;
+/* decorative rule above the title */
+.book::before {
+  content: "";
+  position: absolute;
+  top: 22px;
+  left: 30px;
+  right: 22px;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.35;
+}
+
+.book .cover-title {
+  font-size: 19px;
+  line-height: 1.22;
   font-weight: 700;
-  font-size: 14px;
-  letter-spacing: 0.02em;
-  line-height: 1.2;
-  max-height: 100%;
+  font-style: italic;
+  letter-spacing: -0.005em;
+  margin-top: 18px;
   overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
 }
 
-.book .spine .by {
-  display: block;
-  font-size: 11px;
+.book .cover-by {
   font-family: "Inter", Arial, sans-serif;
-  font-weight: 400;
-  opacity: 0.85;
-  margin-top: 8px;
-  letter-spacing: 0.08em;
+  font-size: 11px;
+  font-weight: 500;
   text-transform: uppercase;
+  letter-spacing: 0.14em;
+  opacity: 0.75;
+  border-top: 1px solid currentColor;
+  padding-top: 10px;
+  margin-top: 10px;
 }
 
 .book:hover {
-  transform: translateY(-18px);
-  margin-top: 0;
+  transform: translateY(-10px) rotate(0deg);
   box-shadow:
-    inset -6px 0 10px rgba(0,0,0,0.25),
-    inset 2px 0 4px rgba(255,255,255,0.2),
-    0 16px 26px rgba(0,0,0,0.35);
+    -6px 0 0 rgba(0,0,0,0.14),
+    6px 18px 30px rgba(40, 55, 75, 0.35);
 }
 
-/* Book colors */
-.book.c-1 { background: linear-gradient(180deg, #6b2e2e 0%, #4a1f1f 100%); }
-.book.c-2 { background: linear-gradient(180deg, #294f6b 0%, #1a3449 100%); }
-.book.c-3 { background: linear-gradient(180deg, #3f6b3a 0%, #264a23 100%); }
-.book.c-4 { background: linear-gradient(180deg, #c9a14a 0%, #8c6e26 100%); color: #2b1d00; }
-.book.c-4 .spine { color: #2b1d00; }
-.book.c-4::before { background: rgba(0,0,0,0.18); }
-.book.c-5 { background: linear-gradient(180deg, #6b3a5f 0%, #44243d 100%); }
-.book.c-6 { background: linear-gradient(180deg, #2e2e2e 0%, #111 100%); }
-.book.c-7 { background: linear-gradient(180deg, #b4b8c4 0%, #7d8396 100%); color: #15151c; }
-.book.c-7 .spine { color: #15151c; }
+/* Warm, muted book cover palette that matches the sky */
+.book.c-1 { background: #e9d8c4; color: #5b3826; }          /* cream */
+.book.c-2 { background: #d9c7b3; color: #4a3320; }          /* tan */
+.book.c-3 { background: #c9b89a; color: #3c2a16; }          /* khaki */
+.book.c-4 { background: #f3e7b9; color: #5a4410; }          /* butter */
+.book.c-5 { background: #cdb9a0; color: #3a2614; }          /* sand */
+.book.c-6 { background: #a9b9a5; color: #24362a; }          /* sage */
+.book.c-7 { background: #b8c4d0; color: #24354a; }          /* dusty blue */
+.book.c-8 { background: #e2cfc0; color: #4b2e1c; }          /* blush */
 
-.book.tilt-l { transform: rotate(-4deg); }
-.book.tilt-r { transform: rotate(3deg); }
-.book.tilt-l:hover { transform: rotate(-4deg) translateY(-18px); margin-top: 0; }
-.book.tilt-r:hover { transform: rotate(3deg) translateY(-18px); margin-top: 0; }
+/* Subtle tilts, smaller variance */
+.book.tilt-l { transform: rotate(-2deg); }
+.book.tilt-r { transform: rotate(2deg); }
+.book.tilt-l:hover { transform: rotate(0deg) translateY(-10px); }
+.book.tilt-r:hover { transform: rotate(0deg) translateY(-10px); }
 
-.book.short { height: 200px; }
-.book.tall  { height: 250px; }
-.book.thick { width: 84px; }
+.book.short { height: 250px; }
+.book.tall  { height: 290px; }
+.book.thick { width: 205px; }
 
-/* Coming-soon placeholder book */
 .book.placeholder {
-  background: repeating-linear-gradient(
-    45deg,
-    #c7c2b4 0 10px,
-    #b7b2a4 10px 20px
-  );
-  color: #555;
+  background: repeating-linear-gradient(45deg, #e6ddd1 0 10px, #d8cfc1 10px 20px);
+  color: #5a4630;
 }
-.book.placeholder .spine { color: #444; }
 
 /* ---------- Post / reading page ---------- */
 .post {
@@ -595,63 +575,10 @@ a { color: inherit; }
   margin: 0;
 }
 
-/* ---------- Resume ---------- */
+/* ---------- Resume (PDF embed) ---------- */
 .resume-wrap {
-  max-width: 820px;
+  max-width: 900px;
   margin: 0 auto;
-}
-
-.resume-card {
-  background: #fff;
-  padding: 40px 44px;
-  border-radius: 6px;
-  box-shadow: 0 12px 30px rgba(0,0,0,0.1);
-  position: relative;
-}
-
-.resume-card::before {
-  content: "";
-  position: absolute;
-  top: -14px;
-  left: 50%;
-  width: 110px;
-  height: 24px;
-  background: var(--tape);
-  transform: translateX(-50%) rotate(-2deg);
-  box-shadow: 0 2px 4px rgba(0,0,0,0.08);
-}
-
-.resume-section {
-  margin-bottom: 28px;
-  font-family: "Inter", Arial, sans-serif;
-}
-
-.resume-section h2 {
-  font-family: "Playfair Display", Georgia, serif;
-  font-size: 22px;
-  margin: 0 0 8px;
-  border-bottom: 2px solid var(--ink);
-  padding-bottom: 4px;
-}
-
-.resume-section h3 {
-  font-size: 16px;
-  margin: 14px 0 2px;
-  font-weight: 600;
-}
-
-.resume-section .when {
-  font-size: 13px;
-  color: #888;
-  margin-bottom: 6px;
-}
-
-.resume-section ul {
-  padding-left: 20px;
-  margin: 6px 0 0;
-  color: var(--ink-soft);
-  font-size: 14px;
-  line-height: 1.55;
 }
 
 .resume-actions {
@@ -660,6 +587,26 @@ a { color: inherit; }
   flex-wrap: wrap;
   justify-content: center;
   margin-bottom: 28px;
+}
+
+.pdf-frame {
+  width: 100%;
+  height: min(1100px, 85vh);
+  border: 1px solid rgba(26, 26, 26, 0.15);
+  border-radius: 4px;
+  background: #fff;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+  display: block;
+}
+
+.pdf-fallback {
+  background: #fff;
+  padding: 24px;
+  border-radius: 4px;
+  font-family: "Inter", Arial, sans-serif;
+  font-size: 14px;
+  text-align: center;
+  color: var(--ink-soft);
 }
 
 /* ---------- Footer ---------- */
@@ -686,6 +633,8 @@ a { color: inherit; }
 
 @media (max-width: 520px) {
   .nav a { padding: 8px 16px; font-size: 13px; }
-  .book { width: 56px; height: 200px; }
-  .book.thick { width: 70px; }
+  .shelf { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 24px 18px; }
+  .book { width: 100%; max-width: 180px; height: 240px; padding: 22px 18px 18px 24px; }
+  .book.thick { width: 100%; max-width: 190px; }
+  .book .cover-title { font-size: 17px; }
 }
