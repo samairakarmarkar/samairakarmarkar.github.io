@@ -3,60 +3,42 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Samaira Karmarkar — Portfolio</title>
-  <meta name="description" content="Samaira Karmarkar's portfolio — marketing, writing, and creative work.">
+  <title>Samaira Karmarkar — Journal</title>
+  <meta name="description" content="Samaira Karmarkar's portfolio — a vintage journal of marketing, writing, and creative work.">
   <link rel="stylesheet" href="style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;0,800;1,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Cinzel:wght@400;500;600&family=Homemade+Apple&family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;0,800;1,700&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="home-body">
 
-<nav class="nav">
+<nav class="nav nav--on-cover">
   <a href="index.html" class="active">home</a>
   <a href="about.html">about me</a>
-  <a href="writing.html">writing samples</a>
+  <a href="writing.html">writing</a>
   <a href="projects.html">projects</a>
   <a href="resume.html">resume</a>
 </nav>
 
-<section class="hero">
-
-  <div class="collage" aria-hidden="true">
-    <div class="polaroid p-1">
-      <div class="frame ph-1"></div>
-      <div class="caption">Details.jpg</div>
-    </div>
-    <div class="polaroid p-2">
-      <div class="frame ph-4"></div>
-      <div class="caption">Details.jpg</div>
-    </div>
-    <div class="polaroid p-3">
-      <div class="frame ph-5"></div>
-      <div class="caption">Details.jpg</div>
-    </div>
-    <div class="polaroid p-4">
-      <div class="frame ph-2"></div>
-      <div class="caption">slay.png</div>
-    </div>
-    <div class="polaroid p-5">
-      <div class="frame ph-3"></div>
-      <div class="caption">slay.png</div>
-    </div>
+<section class="cover-photo" aria-label="Samaira Karmarkar — journal cover">
+  <!-- Mask: a blank cream rectangle covering the portrait so a real photo can be added later -->
+  <div class="cover-photo__mask" aria-hidden="true">
+    <span class="cover-photo__mask-hint">photo goes here</span>
   </div>
 
-  <div class="hero-title">
-    <h1>
-      samaira's
-      <br>
-      <span class="portfolio">portfolio</span>
-    </h1>
-    <p class="hero-subtitle">
-      an insight into my professional and creative works.
-    </p>
-  </div>
+  <!-- Brown linen patch hiding the original 'Adirael G'odoard' text -->
+  <div class="cover-photo__text-cover" aria-hidden="true"></div>
 
+  <!-- Title overlay -->
+  <div class="cover-photo__title">
+    <h1>Samaira<br>Karmarkar</h1>
+    <p>Samaira Karmarkar's<br>Portfolio</p>
+  </div>
 </section>
+
+<p class="cover-open-cta">
+  open the journal — start with <a href="about.html">about me</a>.
+</p>
 
 <footer class="footer">
   <a href="about.html">About</a> ·
