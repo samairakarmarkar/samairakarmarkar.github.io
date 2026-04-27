@@ -1,92 +1,242 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Samaira Karmarkar — Journal</title>
-  <meta name="description" content="Samaira Karmarkar's portfolio — a vintage journal of marketing, writing, and creative work.">
-  <link rel="stylesheet" href="style.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Cinzel:wght@400;500;600&family=Homemade+Apple&family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;0,800;1,700&display=swap" rel="stylesheet">
-    <meta charset="UTF-8">
-    <title>Samaira Karmarkar Portfolio</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body class="home-body">
-
-<nav class="nav nav--on-cover">
-  <a href="index.html" class="active">home</a>
-  <a href="about.html">about me</a>
-  <a href="writing.html">writing</a>
-  <a href="projects.html">projects</a>
-  <a href="resume.html">resume</a>
+<a href="resume.html">resume</a>
 </nav>
-<body>
 
+<section class="cover cover-linen">
+
+  <!-- Stitched leather corners -->
+  <span class="corner corner-tl" aria-hidden="true"></span>
+  <span class="corner corner-tr" aria-hidden="true"></span>
+  <span class="corner corner-bl" aria-hidden="true"></span>
+  <span class="corner corner-br" aria-hidden="true"></span>
+
+  <!-- Two horizontal elastic cords -->
+  <span class="cord cord-1" aria-hidden="true">
+    <span class="cord-peg cord-peg-l"></span>
+    <span class="cord-peg cord-peg-r"></span>
+  </span>
+  <span class="cord cord-2" aria-hidden="true">
+    <span class="cord-peg cord-peg-l"></span>
+    <span class="cord-peg cord-peg-r"></span>
+  </span>
+
+  <!-- Paperclip in the top right -->
+  <div class="deco paperclip" aria-hidden="true">
+    <svg viewBox="0 0 60 90" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="silver" x1="0" x2="1" y1="0" y2="1">
+          <stop offset="0" stop-color="#e8e8e8"/>
+          <stop offset="0.5" stop-color="#aaa"/>
+          <stop offset="1" stop-color="#777"/>
+        </linearGradient>
+      </defs>
+      <circle cx="30" cy="20" r="14" fill="url(#silver)" stroke="#555" stroke-width="1.2"/>
+      <circle cx="30" cy="20" r="3" fill="#3a3a3a"/>
+      <path d="M30 34 Q44 56 30 78 Q16 56 30 34 Z" fill="none" stroke="url(#silver)" stroke-width="3.5" stroke-linecap="round"/>
+    </svg>
+  </div>
+
+  <!-- Ornate silver frame holding a blank portrait -->
+  <figure class="ornate-frame" aria-label="portrait placeholder">
+    <svg class="ornate-frame__svg" viewBox="0 0 360 460" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <defs>
+        <linearGradient id="silverFrame" x1="0" x2="1" y1="0" y2="1">
+          <stop offset="0" stop-color="#f1efe8"/>
+          <stop offset="0.45" stop-color="#a8a298"/>
+          <stop offset="0.7" stop-color="#7d766c"/>
+          <stop offset="1" stop-color="#3d3833"/>
+        </linearGradient>
+        <radialGradient id="silverScroll" cx="0.5" cy="0.5" r="0.6">
+          <stop offset="0" stop-color="#e8e3d6"/>
+          <stop offset="0.6" stop-color="#9a9285"/>
+          <stop offset="1" stop-color="#3f3a32"/>
+        </radialGradient>
+      </defs>
+      <!-- Outer ornate scrolls -->
+      <g fill="url(#silverFrame)" stroke="#2c2722" stroke-width="0.8">
+        <!-- top crown scroll -->
+        <path d="M180 4
+                 C 150 -2 120 8 110 28
+                 C 90 18 70 24 60 42
+                 C 50 32 32 40 30 56
+                 L 20 60
+                 L 20 120
+                 L 40 120
+                 C 38 90 60 70 92 64
+                 C 110 60 130 52 150 46
+                 L 180 42
+                 L 210 46
+                 C 230 52 250 60 268 64
+                 C 300 70 322 90 320 120
+                 L 340 120
+                 L 340 60
+                 L 330 56
+                 C 328 40 310 32 300 42
+                 C 290 24 270 18 250 28
+                 C 240 8 210 -2 180 4 Z"/>
+        <!-- bottom crown scroll mirror -->
+        <path d="M180 456
+                 C 150 462 120 452 110 432
+                 C 90 442 70 436 60 418
+                 C 50 428 32 420 30 404
+                 L 20 400
+                 L 20 340
+                 L 40 340
+                 C 38 370 60 390 92 396
+                 C 110 400 130 408 150 414
+                 L 180 418
+                 L 210 414
+                 C 230 408 250 400 268 396
+                 C 300 390 322 370 320 340
+                 L 340 340
+                 L 340 400
+                 L 330 404
+                 C 328 420 310 428 300 418
+                 C 290 436 270 442 250 432
+                 C 240 452 210 462 180 456 Z"/>
+        <!-- left & right baroque side rails -->
+        <path d="M20 120 L 40 120 L 40 340 L 20 340 Z"/>
+        <path d="M320 120 L 340 120 L 340 340 L 320 340 Z"/>
+        <!-- side flourishes -->
+        <ellipse cx="30" cy="200" rx="18" ry="22" fill="url(#silverScroll)"/>
+        <ellipse cx="30" cy="260" rx="18" ry="22" fill="url(#silverScroll)"/>
+        <ellipse cx="330" cy="200" rx="18" ry="22" fill="url(#silverScroll)"/>
+        <ellipse cx="330" cy="260" rx="18" ry="22" fill="url(#silverScroll)"/>
+        <!-- top & bottom centre cabochons -->
+        <circle cx="180" cy="34" r="11" fill="url(#silverScroll)"/>
+        <circle cx="180" cy="426" r="11" fill="url(#silverScroll)"/>
+      </g>
+      <!-- Inner bezel -->
+      <rect x="58" y="78" width="244" height="304" fill="none" stroke="#2c2722" stroke-width="2"/>
+      <rect x="60" y="80" width="240" height="300" fill="#cdb89a"/>
+      <rect x="62" y="82" width="236" height="296" fill="#d8c3a3"/>
+    </svg>
+    <!-- Blank cream portrait area positioned over the bezel -->
+    <div class="ornate-frame__photo" data-photo-slot="portrait">
+      <span class="ornate-frame__hint">photo goes here</span>
+    </div>
+  </figure>
+
+  <!-- Small bell hanging below the frame -->
+  <div class="deco bell" aria-hidden="true">
+    <svg viewBox="0 0 60 80">
+      <defs>
+        <linearGradient id="brass" x1="0" x2="1" y1="0" y2="1">
+          <stop offset="0" stop-color="#e8c178"/>
+          <stop offset="0.55" stop-color="#9c7a37"/>
+          <stop offset="1" stop-color="#4d3a1a"/>
+        </linearGradient>
+      </defs>
+      <line x1="30" y1="0" x2="30" y2="14" stroke="#2a1f12" stroke-width="1.5"/>
+      <ellipse cx="30" cy="16" rx="3.5" ry="3" fill="url(#brass)"/>
+      <path d="M30 20 C 14 22 8 50 12 60 L 48 60 C 52 50 46 22 30 20 Z" fill="url(#brass)" stroke="#3a2a16" stroke-width="0.8"/>
+      <ellipse cx="30" cy="62" rx="20" ry="4" fill="#3a2a16"/>
+      <circle cx="30" cy="68" r="4" fill="url(#brass)"/>
+    </svg>
+  </div>
+
+  <!-- Heart locket pair hanging from the right cord -->
+  <div class="deco locket" aria-hidden="true">
+    <svg viewBox="0 0 100 110">
+      <defs>
+        <linearGradient id="brassLk" x1="0" x2="1" y1="0" y2="1">
+          <stop offset="0" stop-color="#e6c07a"/>
+          <stop offset="0.6" stop-color="#9d7a3a"/>
+          <stop offset="1" stop-color="#4a361a"/>
+        </linearGradient>
+      </defs>
+      <!-- chain -->
+      <path d="M50 0 L 38 18 M50 0 L 62 18" stroke="#3a2a16" stroke-width="1.2" fill="none"/>
+      <!-- left heart -->
+      <path d="M38 28 c -10 -10 -26 4 -16 16 c 6 8 16 18 16 18 c 0 0 10 -10 16 -18 c 10 -12 -6 -26 -16 -16 z"
+            fill="url(#brassLk)" stroke="#3a2a16" stroke-width="0.8"/>
+      <!-- right heart, slightly overlapping -->
+      <path d="M62 36 c -10 -10 -26 4 -16 16 c 6 8 16 18 16 18 c 0 0 10 -10 16 -18 c 10 -12 -6 -26 -16 -16 z"
+            fill="url(#brassLk)" stroke="#3a2a16" stroke-width="0.8"/>
+      <!-- hinge dots -->
+      <circle cx="38" cy="26" r="2.2" fill="#3a2a16"/>
+      <circle cx="62" cy="34" r="2.2" fill="#3a2a16"/>
+    </svg>
+  </div>
+
+  <!-- Decorative comb in the lower-left -->
+  <div class="deco comb" aria-hidden="true">
+    <svg viewBox="0 0 160 120">
+      <defs>
+        <linearGradient id="brassComb" x1="0" x2="1" y1="0" y2="0">
+          <stop offset="0" stop-color="#5a4220"/>
+          <stop offset="0.5" stop-color="#c79b4f"/>
+          <stop offset="1" stop-color="#5a4220"/>
+        </linearGradient>
+      </defs>
+      <!-- ornate top arch -->
+      <path d="M10 40
+               C 10 10 50 0 80 6
+               C 110 0 150 10 150 40
+               L 145 50
+               C 145 30 120 20 100 22
+               C 92 14 70 14 60 22
+               C 40 20 15 30 15 50 Z"
+            fill="url(#brassComb)" stroke="#3a2a16" stroke-width="0.8"/>
+      <!-- center filigree -->
+      <circle cx="80" cy="22" r="5" fill="#5a4220"/>
+      <!-- teeth -->
+      <g fill="url(#brassComb)" stroke="#3a2a16" stroke-width="0.6">
+        <path d="M18 50 L 22 110 L 26 50 Z"/>
+        <path d="M30 50 L 34 112 L 38 50 Z"/>
+        <path d="M42 50 L 46 110 L 50 50 Z"/>
+        <path d="M54 50 L 58 112 L 62 50 Z"/>
+        <path d="M66 50 L 70 110 L 74 50 Z"/>
+        <path d="M78 50 L 82 112 L 86 50 Z"/>
+        <path d="M90 50 L 94 110 L 98 50 Z"/>
+        <path d="M102 50 L 106 112 L 110 50 Z"/>
+        <path d="M114 50 L 118 110 L 122 50 Z"/>
+        <path d="M126 50 L 130 112 L 134 50 Z"/>
+        <path d="M138 50 L 142 110 L 146 50 Z"/>
+      </g>
+    </svg>
 <section class="cover-photo" aria-label="Samaira Karmarkar — journal cover">
   <!-- Mask: a blank cream rectangle covering the portrait so a real photo can be added later -->
   <div class="cover-photo__mask" aria-hidden="true">
     <span class="cover-photo__mask-hint">photo goes here</span>
-  </div>
-<!-- NAVBAR -->
-<nav class="navbar">
-    <div class="nav-container">
-        <h1 class="logo">Samaira Karmarkar</h1>
-        <ul class="nav-links">
-            <li><a href="#about">About</a></li>
-            <li><a href="#work">Work</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </div>
-</nav>
+</div>
 
+  <!-- Bell hanging from the left cord -->
+  <div class="deco bell bell--cord" aria-hidden="true">
+    <svg viewBox="0 0 60 80">
+      <line x1="30" y1="0" x2="30" y2="14" stroke="#2a1f12" stroke-width="1.5"/>
+      <ellipse cx="30" cy="16" rx="3.5" ry="3" fill="url(#brass)"/>
+      <path d="M30 20 C 14 22 8 50 12 60 L 48 60 C 52 50 46 22 30 20 Z" fill="url(#brass)" stroke="#3a2a16" stroke-width="0.8"/>
+      <ellipse cx="30" cy="62" rx="20" ry="4" fill="#3a2a16"/>
+      <circle cx="30" cy="68" r="4" fill="url(#brass)"/>
+    </svg>
+  </div>
   <!-- Brown linen patch hiding the original 'Adirael G'odoard' text -->
   <div class="cover-photo__text-cover" aria-hidden="true"></div>
-<!-- COVER SECTION -->
-<section class="cover">
-    <img src="images/cover.png" alt="Portfolio Cover" class="cover-img">
-    <div class="cover-text">
-        <h2>Samaira Karmarkar's Portfolio</h2>
-    </div>
-</section>
 
+  <!-- Title block on the right side -->
+  <div class="cover-title-block">
+    <h1 class="cover-name">
+      <span>Samaira</span>
+      <span>Karmarkar</span>
+    </h1>
+    <p class="cover-subtitle">Samaira Karmarkar's Portfolio</p>
   <!-- Title overlay -->
   <div class="cover-photo__title">
     <h1>Samaira<br>Karmarkar</h1>
     <p>Samaira Karmarkar's<br>Portfolio</p>
-  </div>
-<!-- ABOUT -->
-<section id="about" class="section">
-    <h2>About Me</h2>
-    <p>
-        Hi, I'm Samaira. This is my portfolio showcasing my work, experience, and creative projects.
-        I'm passionate about design, business, and building meaningful content.
-    </p>
+</div>
+
+  <!-- CTA -->
+  <p class="cover-open-cta">
+    open the journal — start with <a href="about.html">about me</a>.
+  </p>
+
 </section>
 
 <p class="cover-open-cta">
   open the journal — start with <a href="about.html">about me</a>.
 </p>
-<!-- WORK -->
-<section id="work" class="section">
-    <h2>My Work</h2>
-    <p>Projects coming soon.</p>
-</section>
 
 <footer class="footer">
-  <a href="about.html">About</a> ·
-  <a href="writing.html">Writing</a> ·
-  <a href="projects.html">Projects</a> ·
-  <a href="resume.html">Resume</a> ·
-  <a href="https://www.linkedin.com/in/samairakarmarkar/" target="_blank" rel="noopener">LinkedIn</a> ·
-  <a href="https://medium.com/@samairakarmarkar777" target="_blank" rel="noopener">Medium</a>
-</footer>
-<!-- CONTACT -->
-<section id="contact" class="section">
-    <h2>Contact</h2>
-    <p>Email: your@email.com</p>
-</section>
-
-</body>
-</html>
+<a href="about.html">About</a> ·
+<a href="writing.html">Writing</a> ·
