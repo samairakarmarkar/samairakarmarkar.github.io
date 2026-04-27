@@ -1,74 +1,73 @@
-# Test Plan — Portfolio rebuild (PR #1)
-
-Testing the rebuilt `samairakarmarkar.github.io` site against the local preview at `http://localhost:8765`. Single recording covering the primary flow.
-
-## What changed
-Old site: 4 minimal text-only pages. New site: 5-page portfolio with styled hero, polaroid collage, clickable bookshelf of writing samples, resume page with PDF, and full essay reading pages.
-
-## Primary flow — "Visitor explores the portfolio"
-
-### Test 1: Home page renders the Canva-style hero
-- Navigate to `/index.html`.
-- **Assertions:**
-  - Nav pills visible: `home`, `about me`, `writing samples`, `projects`, `resume` (5 total). `home` pill is black-filled (active state).
-  - `h1` text reads `samaira's` on line one and `portfolio` on line two.
-  - The word `portfolio` renders in **italic** serif with a **yellow highlight background** (not plain black text).
-  - At least 3 polaroid cards are visible in the hero area with "Details.jpg" / "slay.png" captions.
-  - Subtitle text matches: "an insight into my professional and creative works."
-- **Broken-state check:** If styling didn't load, `portfolio` would be plain black serif with no yellow box — visually obvious fail.
-
-### Test 2: Bookshelf — each book is clickable and opens the right essay
-Most-important test (user explicitly called this out).
-- Click the `writing samples` pill.
-- **Assertions on /writing.html:**
-  - A brown wooden shelf is visible with **at least 7 book spines** leaning on it.
-  - Spine text is readable vertically and includes:
-    - `Don't Blame the Player, Blame the Deck`
-    - `Bananas, Balloons & the Price of Nothing`
-    - `More on Medium →`
-  - Click book #1 (leftmost red book titled "Don't Blame the Player").
-    - URL becomes `/post1.html`.
-    - Page shows an `<h1>` reading **"Don't Blame the Player, Blame the Deck"**.
-    - First paragraph starts with: "During any card game, there is always someone who loses…"
-    - Footer has a black button **"read on medium"** pointing to the matching Medium URL.
-  - Click "back to the shelf" and click book #2 (tall blue "Bananas, Balloons…").
-    - URL becomes `/post2.html`.
-    - `<h1>` reads **"Bananas, Balloons, and the Price of Nothing"**.
-    - Paragraph contains "In 2019, a banana taped to a wall was sold for $120,000".
-- **Broken-state check:** If the bookshelf feature were broken, either (a) books wouldn't be links (clicking does nothing), (b) they'd all go to the same page, or (c) essay pages would show the stub "Essay Title / Your writing goes here…" that was in the old repo.
-
-### Test 3: About page shows the adapted Canva quote + fun facts
-- Click `about me`.
-- **Assertions:**
-  - Page title `about me` with `me` in yellow italic highlight.
-  - Quote card starts with "Hi! My name is Samaira…" and mentions "Kelley School of Business".
-  - A separate "fun facts about me" list has **7 bullets** with ✦ glyphs (e.g. "confidence is a practice, not a personality trait").
-  - Two buttons visible: black `view resume` and outlined `my linkedin`; the LinkedIn button `href` is exactly `https://www.linkedin.com/in/samairakarmarkar/`.
-- **Broken-state check:** Old about page had 3 plain `<p>` tags with no card, no quote mark, no fun facts — visually very different.
-
-### Test 4: Projects page shows 6 cards
-- Click `projects`.
-- **Assertions:**
-  - **6** project cards visible, each with a tape strip at top.
-  - Card titles include exactly these strings: "Designers & Business", "PA Young Ambassadors", "Multicultural Resource Center", "Bitcoding Academy", "Essays on Medium", "Sewing, Painting & Video".
-- **Broken-state check:** Old projects page read "Currently building new work—check back soon." — one sentence, no cards. If CSS or content regressed we'd see that instead.
-
-### Test 5: Resume — PDF download link is real, not a 404
-- Click `resume`.
-- **Assertions:**
-  - Click `download pdf` — a PDF opens in a new tab and **renders page 1 with the name "Samaira Karmarkar"** (not a 404 page).
-  - `linkedin` button opens `https://www.linkedin.com/in/samairakarmarkar/` in a new tab.
-  - Resume body includes sections **Education**, **Experience**, **Activities**, **Skills & Interests**, and mentions "Indiana University, Kelley School of Business".
-- **Broken-state check:** Old resume page linked to the same PDF filename, but the file wasn't actually in the repo — the link would 404. This test catches that regression.
-
-## Recording
-One continuous recording following Tests 1 → 5 in order, with `record_annotate` markers at each test boundary.
-
+# Test Plan — Vintage Journal Redesign (PR #3)
+ 
+## What changed (user-visible)
+Full visual redesign to a "vintage journal / scrapbook" aesthetic. Beige/olive/brown/dusty-pink palette, paper-grain background, Caveat handwriting + Cormorant serif. Four pages got structural overhauls: home (journal cover), about (open notebook spread), projects (file-folder system), writing (lined-paper journal cards).
+ 
+## Test environment
+Local static server at `http://localhost:8765/` against the `devin/1777267522-scrapbook-journal` branch checked out at `/home/ubuntu/repos/samairakarmarkar.github.io`.
+ 
+## Primary flow + adversarial assertions
+ 
+Each test is designed so a broken implementation would produce a visibly different result.
+ 
+### T1 — Home renders as a journal cover (not a sky+polaroid hero)
+**Path:** open `http://localhost:8765/index.html`
+**Pass criteria — ALL must hold:**
+- Background of the main hero block is a **dark leather brown** (computed bg of `.cover` is rgb close to `#3b2c20`/`#2b1e14`), NOT light blue sky.
+- A **stitched dashed border** (`.cover::before`) is visible inside the dark cover area.
+- A horizontal **elastic band** (`.cover::after`) crosses the cover roughly in its lower third.
+- Centered cream **title label** contains exact text: eyebrow `A Personal Journal`, h1 `Samaira's portfolio` (with `portfolio` italic in a different font), and a year line `2025 — 2026`.
+- At least one **handwritten note** with text "Dear little me, everything will be alright. Ease your mind." is visible somewhere on the cover.
+- A small CTA below the cover reads `open the journal — start with about me.` and the link goes to `about.html`.
+ 
+**Distinguishes from broken:** if the redesign didn't apply, the home page would still render the old yellow-italic "samaira's portfolio" on a sky background. The dark leather background + the "Dear little me" note do not exist in any prior version.
+ 
+### T2 — About is an open notebook spread with binder rings (CORE)
+**Path:** click `about me` in the top nav.
+**Pass criteria — ALL must hold:**
+- The page contains a center `.spread` element with a **vertical column of 6 dark circular binder rings** running down the middle of the spread (computed: `.rings span` count = 6, each visually round and dark grey).
+- The left page shows a **stack of polaroid-style cards** with at least 3 captions among `kelley, '25` / `studio.` / `paint days`.
+- Below the photo stack, a tilted note card has the heading **`interests`** (NOT "fun facts") and the list contains the literal substring `linkedin games`.
+- The right page begins with the date line `april 22, 2026 · bloomington` followed by the heading `Hi! I'm Samaira.` rendered in the Caveat handwriting font.
+- The first paragraph on the right page has a **drop-cap first letter `I`** that is visibly larger than its paragraph text.
+- Two buttons at the bottom: `view my resume` (links to `resume.html`) and `linkedin` (links to `linkedin.com/in/samairakarmarkar/`).
+ 
+**Distinguishes from broken:** if the new CSS isn't loaded, there'll be no binder rings, no two-column spread, no drop cap, and the heading will be in Playfair (not Caveat). The "fun facts" → "interests" rename is a hard string check.
+ 
+### T3 — Projects is a file-folder system that expands on click (CORE)
+**Path:** click `projects` in the top nav.
+**Pass criteria — ALL must hold:**
+- The page shows a dark backdrop containing **6 stacked manila/colored folder elements**, each with a small upper-right tab.
+- Each folder has a small uppercase tab label among the set: `brand & campaign`, `writing`, `painting`, `sewing & textile`, `cnc & fabrication`, `video`.
+- Before any interaction, the folder bodies are collapsed — for the `painting` folder, the descriptive text starting with "An ongoing personal practice" is **NOT visible** in the rendered viewport (`.folder-body` height ~0).
+- After **clicking** the `painting` folder, the folder lifts upward and the descriptive paragraph "An ongoing personal practice — small canvases, portrait studies…" becomes visible.
+- After clicking it again, the folder collapses (description disappears).
+- A handwritten hint at the bottom reads `click a folder to open it.`
+ 
+**Distinguishes from broken:** if the JS toggle is broken, clicking the folder will do nothing — the body text will never appear (or will be visible permanently from the start). If the CSS transition is broken, all folder bodies will be visible at once.
+ 
+### T4 — Writing books still navigate to the right essays (regression-ish, but the cards visually changed)
+**Path:** click `writing` in the top nav.
+**Pass criteria — ALL must hold:**
+- At least 6 journal-card style links are visible, each with a tape strip on top and lined-paper background (NOT vertical book spines, NOT a wooden shelf).
+- The card titled "Don't Blame the Player, Blame the Deck" navigates to `post1.html` and the post page renders the body paragraph starting `During any card game, there is always someone who loses…`.
+- The card titled "Bananas, Balloons & the Price of Nothing" navigates to `post2.html` and the post page renders the body paragraph mentioning `$120,000`.
+- On both post pages, the first paragraph has a **drop-cap first letter** and there is a tape strip visible at the top of the paper.
+ 
+**Distinguishes from broken:** if `writing.html` lost its links during the rewrite, the books wouldn't navigate; if the post-paper styling didn't update, there'd be no drop cap or tape.
+ 
+### T5 — Resume still serves the real PDF
+**Path:** click `resume` in the top nav.
+**Pass criteria — ALL must hold:**
+- The page shows the embedded PDF `Karmarkar_Samaira_Resume.pdf` rendering with the name `Samaira Karmarkar` visible (or, if inline embed is blocked, the fallback link is present).
+- A `download pdf` button links to `Karmarkar_Samaira_Resume.pdf` with HTTP 200 (verified via curl during setup).
+- A `linkedin` button links to `https://www.linkedin.com/in/samairakarmarkar/`.
+- The whole page is wrapped in a **kraft-colored folder frame** with a small tab labeled `RESUME / 2026` in the upper-right.
+ 
+**Distinguishes from broken:** missing PDF would 404; missing folder frame would just show the PDF on plain background.
+ 
 ## Out of scope
-- Mobile responsive (spot-check in summary only)
-- Real photos (placeholders are intentional until user provides images)
-- Post3.html "coming soon" page (trivial placeholder)
-- Cross-browser (Chrome only)
-
-## Preview URL
-Local only: `http://localhost:8765/`. GitHub Pages won't update until the PR is merged into `main`.
+- Mobile responsiveness beyond a quick visual sanity check (note: explicitly listed by user but won't be the focus of the recording)
+- Keyboard accessibility of the folder buttons
+- Browser compatibility beyond Chrome
+- Photo content (still gradient placeholders — flagged in PR description)
