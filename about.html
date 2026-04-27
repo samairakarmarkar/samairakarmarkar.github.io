@@ -7,61 +7,102 @@
   <link rel="stylesheet" href="style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;0,800;1,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Homemade+Apple&family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;0,800;1,700&display=swap" rel="stylesheet">
 </head>
 <body>
 
 <nav class="nav">
   <a href="index.html">home</a>
   <a href="about.html" class="active">about me</a>
-  <a href="writing.html">writing samples</a>
+  <a href="writing.html">writing</a>
   <a href="projects.html">projects</a>
   <a href="resume.html">resume</a>
 </nav>
 
-<main class="page">
+<main class="page" style="max-width:1180px;">
 
   <h1 class="page-title">about <span class="mark">me</span></h1>
-  <p class="page-lead">welcome — learn a little more about who I am and what I care about.</p>
+  <p class="page-lead">— a journal entry —</p>
 
-  <div class="about-grid">
+  <article class="spread">
 
-    <div class="about-card">
-      <span class="quote-mark">"</span>
-      <p>
-        Hi! My name is Samaira and I'm a marketing major at Indiana University's
-        Kelley School of Business, interested in consumer behavior and brand strategy.
-      </p>
-      <p>
-        My background in content creation sparked a deeper interest in how brands
-        influence perception and connect with audiences. I focus on the strategic
-        side of marketing — understanding decision-making, positioning, and long-term loyalty.
-        Through academic work, Designers &amp; Business, and volunteer experience,
-        I bring a balance of creativity and analytical thinking.
-      </p>
-      <p>
-        I'm currently seeking opportunities in brand strategy, digital marketing,
-        or consumer insights.
-      </p>
+    <div class="rings" aria-hidden="true">
+      <span></span><span></span><span></span><span></span><span></span><span></span>
+    </div>
 
-      <div class="about-actions">
-        <a class="btn" href="resume.html">view resume</a>
-        <a class="btn ghost" href="https://www.linkedin.com/in/samairakarmarkar/" target="_blank" rel="noopener">my linkedin</a>
+    <!-- Left page: photo stack -->
+    <div class="spread-left">
+      <div class="photo-stack">
+
+        <div class="polaroid ps-1">
+          <div class="frame ph-cream"></div>
+          <div class="caption">kelley, '25</div>
+        </div>
+
+        <div class="polaroid ps-2">
+          <div class="frame ph-pink"></div>
+          <div class="caption">studio.</div>
+        </div>
+
+        <div class="polaroid ps-3">
+          <div class="frame ph-olive"></div>
+          <div class="caption">paint days</div>
+        </div>
+
+      </div>
+
+      <div class="note-card">
+        <h3>interests</h3>
+        <ul>
+          <li>linkedin games — queens &amp; tango streaks</li>
+          <li>thriller films, slow-burn plots</li>
+          <li>cnc machinery — quiet precision</li>
+          <li>painting (oil &amp; acrylic)</li>
+          <li>sewing &amp; video editing</li>
+        </ul>
       </div>
     </div>
 
-    <aside class="fun-facts">
-      <h2><span class="mark">interests</span></h2>
-      <ul class="fact-list">
-        <li>LinkedIn games — Queens, Tango &amp; the daily puzzle streak</li>
-        <li>thriller films — slow-burn plots and twist endings</li>
-        <li>CNC machinery — the quiet precision of a good cut</li>
-        <li>painting — oil, acrylic, and the occasional wall mural</li>
-        <li>sewing &amp; video editing on the side</li>
-      </ul>
-    </aside>
+    <!-- Right page: journal entry -->
+    <div class="spread-right">
+      <div class="entry">
+        <div class="entry-date">april 22, 2026 · bloomington</div>
+        <h2 class="entry-title">Hi! I'm Samaira.</h2>
 
-  </div>
+        <p>
+          I'm a marketing major at Indiana University's Kelley School of Business,
+          writing this from a small desk that always has too much paint on it.
+          I care about consumer behavior, brand strategy, and the quiet mechanics
+          that make a thing feel <em>chosen</em> — not sold.
+        </p>
+
+        <p>
+          My background in content creation pulled me into the strategic side of
+          marketing: how brands position themselves, how audiences decide, how
+          loyalty is actually built across years and not campaigns. Through
+          academic work, Designers &amp; Business, and volunteer experience, I try
+          to keep equal parts creativity and analytical thinking on the page.
+        </p>
+
+        <p>
+          Outside of school I paint, sew, edit short videos, and recently started
+          spending time with CNC tools — which I love for the same reason I love
+          a good thriller: precision and patience with the payoff at the end.
+        </p>
+
+        <p>
+          I'm currently looking for opportunities in brand strategy, digital
+          marketing, and consumer insights — and always for new things to read.
+        </p>
+
+        <div class="about-actions">
+          <a class="btn" href="resume.html">view my resume</a>
+          <a class="btn ghost" href="https://www.linkedin.com/in/samairakarmarkar/" target="_blank" rel="noopener">linkedin</a>
+        </div>
+      </div>
+    </div>
+
+  </article>
 
 </main>
 
