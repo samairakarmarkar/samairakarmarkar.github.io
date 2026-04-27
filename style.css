@@ -1,21 +1,10 @@
-/* ---------- Base ---------- */
+body {
 /* ============================================================
    Samaira Karmarkar — Journal / Scrapbook portfolio
    Vintage diary aesthetic: paper, leather, tape, clips, polaroids
    ============================================================ */
-
+ 
 :root {
-  --sky-top: #cfe0ef;
-  --sky-bot: #aec6de;
-  --cloud: #ffffff;
-  --ink: #1a1a1a;
-  --ink-soft: #3a3a3a;
-  --highlight: #fff04a;
-  --card: #ffffff;
-  --tape: rgba(220, 215, 180, 0.75);
-  --shelf: #6e4a2b;
-  --shelf-dark: #4a2f18;
-  --shelf-light: #8a6238;
   /* Palette — beige / olive / brown / dusty pink / off-white */
   --paper:        #f1e9d8;   /* base ivory paper */
   --paper-aged:   #e9dcc1;   /* warmer aged sheet */
@@ -37,18 +26,19 @@
   --shadow-soft:  0 6px 14px rgba(40, 28, 16, 0.18);
   --shadow-deep:  0 14px 28px rgba(40, 28, 16, 0.28);
 }
-
+ 
 * { box-sizing: border-box; }
-@@ -19,489 +32,1331 @@ html, body {
-margin: 0;
-padding: 0;
-color: var(--ink);
-  font-family: "Playfair Display", "Cormorant Garamond", Georgia, serif;
-  background: #c9dceb url('images/sky.png') center/cover no-repeat fixed;
+ 
+html, body {
+  margin: 0;
+  font-family: Georgia, serif;
+  background: #f4f4f4;
+  padding: 0;
+  color: var(--ink);
   font-family: "Cormorant Garamond", "Playfair Display", Georgia, serif;
   font-size: 17px;
   line-height: 1.6;
-min-height: 100vh;
+  min-height: 100vh;
   background-color: var(--paper);
   background-image:
     /* faint paper grain */
@@ -60,42 +50,35 @@ min-height: 100vh;
     linear-gradient(180deg, #f3eada 0%, #e9dcc1 100%);
   background-attachment: fixed;
 }
-
+ 
+/* LAYOUT */
+.split {
 img { max-width: 100%; display: block; }
 a { color: inherit; }
-
-/* ---------- Top nav pills ---------- */
+ 
 /* ============================================================
    Top nav — tabbed manila markers
    ============================================================ */
 .nav {
-display: flex;
-justify-content: center;
-  gap: 14px;
-  padding: 28px 20px 0;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
   gap: 8px;
   padding: 24px 16px 0;
-flex-wrap: wrap;
+  flex-wrap: wrap;
 }
-
+ 
+.left {
+  width: 50%;
+  background: #eaeaea;
 .nav a {
   position: relative;
-display: inline-block;
-  padding: 10px 22px;
-  background: rgba(255, 255, 255, 0.45);
-  border: 1px solid rgba(26, 26, 26, 0.35);
-  border-radius: 999px;
+  display: inline-block;
   padding: 9px 22px 11px;
   background: var(--paper-soft);
   color: var(--ink);
-text-decoration: none;
-font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
-  font-size: 14px;
-  letter-spacing: 0.02em;
-  color: var(--ink);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-  transition: transform .18s ease, background .18s ease, border-color .18s ease;
+  text-decoration: none;
+  font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
   font-size: 12px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -105,42 +88,24 @@ font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
   box-shadow: 0 2px 0 rgba(90, 70, 40, 0.08);
   transition: transform .25s ease, background .25s ease, box-shadow .25s ease;
 }
-
+ 
 .nav a:hover {
-  background: rgba(255, 255, 255, 0.7);
-  transform: translateY(-2px);
   background: var(--paper);
   transform: translateY(-3px);
   box-shadow: 0 6px 10px rgba(90, 70, 40, 0.15);
 }
-
+ 
 .nav a.active {
-  background: rgba(255, 255, 255, 0.75);
-  border-color: rgba(26, 26, 26, 0.85);
   background: var(--kraft);
   border-color: rgba(90, 70, 40, 0.45);
   box-shadow: 0 4px 8px rgba(90, 70, 40, 0.18);
 }
-
-/* ---------- Hero ---------- */
-.hero {
-  position: relative;
-  max-width: 1200px;
-  margin: 40px auto 60px;
-  padding: 40px 24px 80px;
-  min-height: 560px;
-}
+ 
 /* ============================================================
    Shared scrapbook primitives
    tape, clip, polaroid, binder-rings, paper sheet
    ============================================================ */
-
-.hero-title {
-  text-align: center;
-  margin: 80px auto 0;
-  max-width: 760px;
-  position: relative;
-  z-index: 2;
+ 
 /* Strip of tape — used as ::before/::after or .tape element */
 .tape {
   position: absolute;
@@ -153,13 +118,7 @@ font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
 .tape.pink { background: var(--tape-pink); }
 .tape.tilt-l { transform: rotate(-4deg); }
 .tape.tilt-r { transform: rotate(4deg); }
-
-.hero-title h1 {
-  font-size: clamp(56px, 9vw, 120px);
-  font-weight: 800;
-  line-height: 0.95;
-  margin: 0;
-  letter-spacing: -0.02em;
+ 
 /* Paperclip — pure CSS */
 .clip {
   position: absolute;
@@ -171,16 +130,6 @@ font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
   box-shadow: 1px 2px 4px rgba(0,0,0,0.25);
   pointer-events: none;
 }
-
-.hero-title .portfolio {
-  display: inline-block;
-  font-style: italic;
-  font-weight: 700;
-  background: var(--highlight);
-  padding: 0 18px 4px;
-  margin-top: 10px;
-  transform: rotate(-1deg);
-  box-shadow: 3px 3px 0 rgba(0,0,0,0.08);
 .clip::before {
   content: "";
   position: absolute;
@@ -191,16 +140,7 @@ font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
   border-bottom: none;
   border-radius: 8px 8px 0 0;
 }
-
-.hero-subtitle {
-  text-align: center;
-  font-family: "Inter", Arial, sans-serif;
-  font-size: 18px;
-  color: var(--ink-soft);
-  max-width: 520px;
-  margin: 28px auto 0;
-  position: relative;
-  z-index: 2;
+ 
 /* Binder clip — stronger clamp */
 .binder-clip {
   position: absolute;
@@ -210,13 +150,6 @@ font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
   border-radius: 3px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.25);
 }
-
-/* ---------- Polaroid collage ---------- */
-.collage {
-  position: relative;
-  width: 100%;
-  height: 0;
-  pointer-events: none;
 .binder-clip::before,
 .binder-clip::after {
   content: "";
@@ -229,17 +162,9 @@ font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
 }
 .binder-clip::before { left: 4px; }
 .binder-clip::after  { right: 4px; }
-
+ 
 /* Polaroid */
 .polaroid {
-  position: absolute;
-  background: var(--card);
-  padding: 10px 10px 30px;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
-  font-family: "Inter", Arial, sans-serif;
-  font-size: 12px;
-  color: #888;
-  pointer-events: auto;
   position: relative;
   background: #fdfaf2;
   padding: 10px 10px 32px;
@@ -249,58 +174,19 @@ font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
   color: var(--ink-soft);
   display: inline-block;
 }
-
 .polaroid .frame {
-  width: 160px;
-  height: 180px;
-  border-radius: 2px;
   width: 200px;
   height: 230px;
-background-size: cover;
-background-position: center;
+  background-size: cover;
+  background-position: center;
   background-color: #d4cab2;
 }
-
 .polaroid .caption {
-  margin-top: 8px;
-  text-align: left;
-  padding-left: 4px;
   margin-top: 10px;
   text-align: center;
   font-size: 16px;
 }
-
-.polaroid::before {
-  content: "";
-  position: absolute;
-  top: -12px;
-  left: 50%;
-  transform: translateX(-50%) rotate(-3deg);
-  width: 70px;
-  height: 22px;
-  background: var(--tape);
-  box-shadow: 0 2px 4px rgba(0,0,0,0.08);
-}
-
-/* Collage positions (hero) */
-.p-1 { top: 40px;  left: 20px;  transform: rotate(-6deg); }
-.p-2 { top: 320px; left: 100px; transform: rotate(4deg); }
-.p-3 { top: 220px; left: 230px; transform: rotate(-2deg); width: 130px; }
-.p-3 .frame { width: 130px; height: 150px; }
-.p-4 { top: 40px;  right: 40px;  transform: rotate(5deg); }
-.p-5 { top: 250px; right: 20px;  transform: rotate(-4deg); }
-
-/* Placeholder frame gradients (can be replaced with real photos) */
-.frame.ph-1 { background: linear-gradient(135deg, #f2e6d9, #c9b59a); }
-.frame.ph-2 { background: linear-gradient(135deg, #b9d4e8, #6d94b8); }
-.frame.ph-3 { background: linear-gradient(135deg, #e0cba5, #a9804a); }
-.frame.ph-4 { background: linear-gradient(135deg, #a9c8a9, #6b8e6b); }
-.frame.ph-5 { background: linear-gradient(135deg, #e6d4c3, #b07d55); }
-.frame.ph-6 { background: linear-gradient(135deg, #e6c7cc, #b06b87); }
-.frame.ph-7 { background: linear-gradient(135deg, #d4d8e4, #7d83a0); }
-.frame.ph-8 { background: linear-gradient(135deg, #efe4b3, #a89144); }
-
-/* ---------- Generic page container ---------- */
+ 
 /* Photo placeholders — soft tinted gradients */
 .frame.ph-cream    { background-image: linear-gradient(135deg, #f0e2c8, #d6bf94); }
 .frame.ph-olive    { background-image: linear-gradient(135deg, #b6b591, #757a51); }
@@ -310,60 +196,38 @@ background-position: center;
 .frame.ph-butter   { background-image: linear-gradient(135deg, #f1e3a7, #b8973f); }
 .frame.ph-sage     { background-image: linear-gradient(135deg, #c9d3b9, #7a8c69); }
 .frame.ph-blush    { background-image: linear-gradient(135deg, #ead7cd, #b07d68); }
-
+ 
 /* Generic page wrapper */
 .page {
-max-width: 1100px;
-margin: 0 auto;
-  padding: 40px 24px 80px;
+  max-width: 1100px;
+  margin: 0 auto;
   padding: 30px 24px 80px;
 }
-
+ 
 .page-title {
-  font-size: clamp(40px, 6vw, 72px);
-  font-weight: 800;
   font-family: "Caveat", "Homemade Apple", cursive;
   font-size: clamp(48px, 7vw, 84px);
-text-align: center;
-  margin: 30px 0 8px;
-  letter-spacing: -0.02em;
+  text-align: center;
   margin: 28px 0 6px;
   color: var(--brown);
   font-weight: 400;
   letter-spacing: 0.5px;
 }
-
 .page-title .mark {
-  background: var(--highlight);
-  padding: 0 12px;
-font-style: italic;
-  font-weight: 700;
-  display: inline-block;
-  transform: rotate(-1deg);
+  font-style: italic;
   color: var(--olive);
 }
-
+ 
 .page-lead {
-text-align: center;
-  font-family: "Inter", Arial, sans-serif;
+  text-align: center;
   font-family: "Cormorant Garamond", Georgia, serif;
   font-style: italic;
-color: var(--ink-soft);
-  max-width: 640px;
-  margin: 0 auto 40px;
-  font-size: 17px;
+  color: var(--ink-soft);
   max-width: 620px;
   margin: 0 auto 36px;
   font-size: 18px;
 }
-
-/* ---------- About ---------- */
-.about-grid {
-  display: grid;
-  grid-template-columns: 1.1fr 1fr;
-  gap: 40px;
-  align-items: start;
-  margin-top: 30px;
+ 
 /* ============================================================
    HOME — journal cover (legacy, retained for fallback)
    ============================================================ */
@@ -389,17 +253,7 @@ color: var(--ink-soft);
   min-height: 580px;
   overflow: hidden;
 }
-
-.about-card {
-  background: #fff;
-  padding: 36px 32px;
-  border-radius: 6px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-  font-family: "Inter", Arial, sans-serif;
-  font-size: 16px;
-  line-height: 1.7;
-  color: var(--ink-soft);
-  position: relative;
+ 
 /* ============================================================
    HOME — linen scrapbook cover (current home page)
    ============================================================ */
@@ -409,8 +263,7 @@ color: var(--ink-soft);
     radial-gradient(ellipse at center, rgba(0,0,0,0) 30%, rgba(0,0,0,0.45) 100%),
     linear-gradient(180deg, #5a4332 0%, #3c2a1e 100%);
 }
-
-.about-card::before {
+ 
 .nav--on-cover a {
   background: rgba(255, 248, 230, 0.86);
   border-color: rgba(40, 26, 16, 0.35);
@@ -421,7 +274,7 @@ color: var(--ink-soft);
 .nav--on-cover a.active {
   background: #e3cfa3;
 }
-
+ 
 .cover.cover-linen {
   max-width: 1100px;
   min-height: 720px;
@@ -460,13 +313,13 @@ color: var(--ink-soft);
     0 36px 70px rgba(15, 8, 4, 0.6),
     0 2px 0 rgba(255, 235, 200, 0.06);
 }
-
+ 
 /* override legacy ::before/::after for the new linen home */
 .cover.cover-linen::before,
 .cover.cover-linen::after {
   display: none;
 }
-
+ 
 /* Stitched leather corner caps */
 .cover-linen .corner {
   position: absolute;
@@ -479,10 +332,8 @@ color: var(--ink-soft);
   z-index: 2;
 }
 .cover-linen .corner::before {
-content: "";
-position: absolute;
-  top: -14px;
-  left: 40px;
+  content: "";
+  position: absolute;
   inset: 8px;
   border: 1px dashed rgba(255, 220, 170, 0.35);
   pointer-events: none;
@@ -491,7 +342,7 @@ position: absolute;
 .corner-tr { top: 0; right: 0; clip-path: polygon(0 0, 100% 0, 100% 100%); }
 .corner-bl { bottom: 0; left: 0; clip-path: polygon(0 0, 0 100%, 100% 100%); }
 .corner-br { bottom: 0; right: 0; clip-path: polygon(100% 0, 0 100%, 100% 100%); }
-
+ 
 /* Two horizontal elastic cords running across the lower half */
 .cover-linen .cord {
   position: absolute;
@@ -506,7 +357,7 @@ position: absolute;
 }
 .cord-1 { top: 49%; }
 .cord-2 { top: 60%; }
-
+ 
 .cover-linen .cord-peg {
   position: absolute;
   top: 50%;
@@ -529,7 +380,7 @@ position: absolute;
   background: rgba(0, 0, 0, 0.55);
   border-radius: 1px;
 }
-
+ 
 /* Decorative SVG containers */
 .cover-linen .deco {
   position: absolute;
@@ -539,7 +390,7 @@ position: absolute;
 }
 .cover-linen .deco svg { display: block; width: 100%; height: 100%; }
 .cover-linen .deco:hover { transform: translateY(-4px) rotate(-1deg); }
-
+ 
 .cover-linen .paperclip {
   width: 56px;
   height: 84px;
@@ -547,7 +398,7 @@ position: absolute;
   right: 70px;
   transform: rotate(8deg);
 }
-
+ 
 .cover-linen .bell {
   width: 56px;
   height: 76px;
@@ -560,25 +411,15 @@ position: absolute;
   left: 12%;
   transform: rotate(2deg);
 }
-
+ 
 .cover-linen .locket {
-width: 90px;
-  height: 24px;
-  background: var(--tape);
-  transform: rotate(-2deg);
-  box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+  width: 90px;
   height: 100px;
   top: 47%;
   right: 18%;
   transform: rotate(-3deg);
 }
-
-.about-card .quote-mark {
-  font-family: "Playfair Display", Georgia, serif;
-  font-size: 64px;
-  line-height: 0.5;
-  color: var(--highlight);
-  margin-bottom: 6px;
+ 
 .cover-linen .comb {
   width: 180px;
   height: 130px;
@@ -586,7 +427,7 @@ width: 90px;
   left: 60px;
   transform: rotate(-4deg);
 }
-
+ 
 /* Ornate silver portrait frame on the left */
 .ornate-frame {
   position: absolute;
@@ -600,15 +441,13 @@ width: 90px;
   transition: transform .5s ease;
 }
 .ornate-frame:hover { transform: translateY(-3px) rotate(-0.4deg); }
-
+ 
 .ornate-frame__svg {
   width: 100%;
   height: 100%;
-display: block;
+  display: block;
 }
-
-.about-card p { margin: 0 0 14px; }
-.about-card p:last-child { margin-bottom: 0; }
+ 
 .ornate-frame__photo {
   position: absolute;
   /* match the inner bezel of the SVG (60..300 / 80..380 of 360x460) */
@@ -631,12 +470,10 @@ display: block;
   text-align: center;
   padding: 0 12px;
 }
-
-.fun-facts {
-  background: #fff;
-  padding: 32px;
-  border-radius: 6px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+ 
+.right {
+  width: 50%;
+  padding: 100px;
 /* Title block on the right side */
 .cover-title-block {
   position: absolute;
@@ -668,7 +505,11 @@ display: block;
   letter-spacing: 0.06em;
   color: rgba(246, 236, 210, 0.78);
 }
-
+ 
+/* TEXT */
+h1 {
+  font-size: 48px;
+  margin-bottom: 20px;
 .cover-open-cta {
   text-align: center;
   margin: 26px auto 8px;
@@ -683,14 +524,15 @@ display: block;
   text-decoration-style: wavy;
   text-decoration-color: rgba(244, 217, 142, 0.7);
 }
-
+ 
+p {
 /* ============================================================
    HOME — actual photographed scrapbook cover (current home page)
    Uses the reference image directly with a blank cream mask
    over the portrait area so a real photo can be added later.
    ============================================================ */
 .cover-photo {
-position: relative;
+  position: relative;
   display: block;
   max-width: 980px;
   margin: 28px auto 0;
@@ -704,11 +546,7 @@ position: relative;
     0 2px 0 rgba(255, 235, 200, 0.06);
   overflow: hidden;
 }
-
-.fun-facts h2 {
-  font-size: 28px;
-  margin: 0 0 16px;
-  font-weight: 800;
+ 
 /* Blank cream rectangle covering the portrait of the man.
    Positioned in % so it scales with the section. */
 .cover-photo__mask {
@@ -729,11 +567,7 @@ position: relative;
   justify-content: center;
   z-index: 2;
 }
-
-.fun-facts h2 .mark {
-  background: var(--highlight);
-  padding: 0 8px;
-  font-style: italic;
+ 
 /* Brown linen patch that hides the original printed text on the right
    side of the photographed scrapbook ('Adirael G'odoard' etc.) */
 .cover-photo__text-cover {
@@ -774,10 +608,7 @@ position: relative;
   text-align: center;
   padding: 0 10px;
 }
-
-.fact-list {
-  list-style: none;
-  padding: 0;
+ 
 /* Right-side title overlay replacing 'Adirael G'odoard' text */
 .cover-photo__title {
   position: absolute;
@@ -793,7 +624,7 @@ position: relative;
   font-weight: 500;
   font-size: clamp(20px, 3.6vw, 38px);
   line-height: 1.05;
-margin: 0;
+  margin: 0;
   letter-spacing: 0.01em;
   color: #f1ead8;
   text-shadow: 0 1px 0 rgba(0, 0, 0, 0.45);
@@ -807,14 +638,14 @@ margin: 0;
   color: rgba(241, 234, 216, 0.85);
   line-height: 1.35;
 }
-
+ 
 @media (max-width: 720px) {
   .cover-photo__mask-hint { font-size: 12px; }
   .cover-photo__title h1 { font-size: 18px; }
   .cover-photo__title p  { font-size: 10px; }
   .cover-open-cta { font-size: 20px; }
 }
-
+ 
 /* Responsive: stack on narrow screens */
 @media (max-width: 820px) {
   .cover.cover-linen {
@@ -849,7 +680,7 @@ margin: 0;
     margin-top: 16px;
   }
 }
-
+ 
 /* Stitching */
 .cover::before {
   content: "";
@@ -859,7 +690,7 @@ margin: 0;
   border-radius: 4px;
   pointer-events: none;
 }
-
+ 
 /* Elastic band across the cover */
 .cover::after {
   content: "";
@@ -870,7 +701,7 @@ margin: 0;
   background: linear-gradient(180deg, #1a120b, #0d0805);
   box-shadow: 0 1px 0 rgba(255,255,255,0.05) inset, 0 6px 12px rgba(0,0,0,0.4);
 }
-
+ 
 .cover-label {
   position: relative;
   z-index: 5;
@@ -888,14 +719,13 @@ margin: 0;
   border: 1px solid rgba(120, 90, 50, 0.2);
 }
 .cover-label:hover { transform: rotate(-0.4deg) translateY(-2px); }
-
+ 
 .cover-label .eyebrow {
-font-family: "Inter", Arial, sans-serif;
-  font-size: 15px;
+  font-family: "Inter", Arial, sans-serif;
   font-size: 11px;
   letter-spacing: 0.32em;
   text-transform: uppercase;
-color: var(--ink-soft);
+  color: var(--ink-soft);
   margin-bottom: 14px;
 }
 .cover-label h1 {
@@ -919,7 +749,7 @@ color: var(--ink-soft);
   letter-spacing: 0.3em;
   font-size: 14px;
 }
-
+ 
 .cover-label .ribbon {
   position: absolute;
   top: -12px;
@@ -930,7 +760,7 @@ color: var(--ink-soft);
   transform: rotate(-3deg);
   box-shadow: 0 2px 4px rgba(0,0,0,0.18);
 }
-
+ 
 /* Decorations strewn across the cover */
 .cover-deco {
   position: absolute;
@@ -938,7 +768,7 @@ color: var(--ink-soft);
   transition: transform .4s ease;
 }
 .cover-deco:hover { transform: translate(0, -4px) rotate(0deg) !important; }
-
+ 
 .cover-deco.photo {
   width: 150px;
   background: #fdfaf2;
@@ -956,10 +786,7 @@ color: var(--ink-soft);
   background-position: center;
 }
 .cover-deco.photo .caption { margin-top: 6px; }
-
-.fact-list li {
-  padding: 10px 0;
-  border-bottom: 1px dashed #d8d8d8;
+ 
 .cover-deco.note {
   width: 180px;
   padding: 18px 18px 22px;
@@ -971,14 +798,14 @@ color: var(--ink-soft);
   box-shadow: var(--shadow-soft);
   border: 1px solid rgba(120, 90, 50, 0.15);
 }
-
+ 
 .cover-deco.charm-star {
   width: 28px; height: 28px;
   background: #c8a75a;
   clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
   filter: drop-shadow(1px 2px 2px rgba(0,0,0,0.4));
 }
-
+ 
 .cover-deco.paperclip {
   width: 22px;
   height: 56px;
@@ -996,7 +823,7 @@ color: var(--ink-soft);
   border-bottom: none;
   border-radius: 8px 8px 0 0;
 }
-
+ 
 /* Cover layout positions (decorative, absolutely placed) */
 .cover-grid {
   position: relative;
@@ -1011,7 +838,7 @@ color: var(--ink-soft);
 .pos-6 { top: 380px; right: 100px; transform: rotate(5deg); }
 .pos-7 { top: 100px; left: 220px; transform: rotate(-12deg); }
 .pos-8 { top: 360px; right: 240px; }
-
+ 
 /* CTA strip below the cover */
 .cover-cta {
   text-align: center;
@@ -1026,7 +853,7 @@ color: var(--ink-soft);
   text-decoration-color: var(--olive);
   text-underline-offset: 6px;
 }
-
+ 
 /* ============================================================
    ABOUT — open notebook spread
    ============================================================ */
@@ -1043,7 +870,7 @@ color: var(--ink-soft);
   padding: 50px 60px;
   gap: 40px;
 }
-
+ 
 .spread::before {
   content: "";
   position: absolute;
@@ -1057,7 +884,7 @@ color: var(--ink-soft);
   pointer-events: none;
   border-radius: 4px;
 }
-
+ 
 /* Binder rings down the gutter */
 .spread .rings {
   position: absolute;
@@ -1065,11 +892,10 @@ color: var(--ink-soft);
   top: 0; bottom: 0;
   transform: translateX(-50%);
   width: 28px;
-display: flex;
+  display: flex;
   flex-direction: column;
   justify-content: space-around;
-align-items: center;
-  gap: 10px;
+  align-items: center;
   pointer-events: none;
 }
 .spread .rings span {
@@ -1080,10 +906,9 @@ align-items: center;
   background: radial-gradient(circle at 35% 30%, #f0f0f0 0%, #999 35%, #555 70%, #2a2a2a 100%);
   box-shadow: 0 2px 4px rgba(0,0,0,0.3), inset 0 -2px 3px rgba(0,0,0,0.4);
 }
-
-.fact-list li:last-child { border-bottom: none; }
+ 
 .spread-left, .spread-right { position: relative; z-index: 2; }
-
+ 
 .spread-left {
   display: flex;
   flex-direction: column;
@@ -1091,18 +916,19 @@ align-items: center;
   gap: 18px;
   padding: 8px 30px 8px 0;
 }
-
-.fact-list li::before {
-  content: "✦";
+ 
 .spread-right {
   font-family: "Cormorant Garamond", Georgia, serif;
   font-size: 18px;
+  line-height: 1.6;
   line-height: 1.85;
-color: var(--ink);
-  font-size: 14px;
+  color: var(--ink);
   padding: 8px 0 8px 30px;
 }
-
+ 
+/* MENU */
+.menu {
+  margin-top: 30px;
 .entry-date {
   font-family: "Caveat", cursive;
   font-size: 26px;
@@ -1126,7 +952,8 @@ color: var(--ink);
   padding: 4px 8px 0 0;
   color: var(--brown);
 }
-
+ 
+.menu a {
 /* photo stack on left */
 .photo-stack {
   position: relative;
@@ -1140,7 +967,7 @@ color: var(--ink);
 .photo-stack .ps-2 { top: 110px; left: 130px; transform: rotate(4deg); }
 .photo-stack .ps-3 { top: 230px; left: 40px;  transform: rotate(-3deg); }
 .photo-stack .polaroid .frame { width: 170px; height: 195px; }
-
+ 
 /* Interests list — small note pinned below */
 .note-card {
   background: var(--paper-soft);
@@ -1173,33 +1000,29 @@ color: var(--ink);
   border-bottom: 1px dashed rgba(120, 90, 50, 0.2);
 }
 .note-card ul li:last-child { border-bottom: none; }
-
+ 
 .about-actions {
-  margin-top: 28px;
   margin-top: 22px;
-display: flex;
-gap: 14px;
-flex-wrap: wrap;
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
 }
-
+ 
 /* ============================================================
    Buttons (shared)
    ============================================================ */
 .btn {
-display: inline-block;
-  padding: 12px 22px;
-  background: var(--ink);
-  color: #fff;
-  border-radius: 999px;
+  display: inline-block;
+  margin-right: 15px;
+  padding: 10px 16px;
+  border: 1px solid black;
   padding: 11px 22px;
   background: var(--brown);
   color: var(--paper-soft);
   border-radius: 2px;
-text-decoration: none;
-font-family: "Inter", Arial, sans-serif;
-  font-size: 14px;
-  letter-spacing: 0.02em;
-  transition: transform .18s ease, background .18s ease;
+  text-decoration: none;
+  color: black;
+  font-family: "Inter", Arial, sans-serif;
   font-size: 12px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -1215,8 +1038,10 @@ font-family: "Inter", Arial, sans-serif;
   box-shadow: none;
 }
 .btn.ghost:hover { background: var(--paper-soft); }
-
-.btn:hover { transform: translateY(-2px); background: #000; }
+ 
+.menu a:hover {
+  background: black;
+  color: white;
 /* ============================================================
    PROJECTS — file-folder system
    ============================================================ */
@@ -1232,9 +1057,11 @@ font-family: "Inter", Arial, sans-serif;
   box-shadow: 0 24px 48px rgba(20, 12, 6, 0.5), inset 0 0 0 1px rgba(255,255,255,0.04);
   overflow: hidden;
 }
-
-.btn.ghost {
-  background: #fff;
+ 
+/* BOOK VISUALS */
+.books {
+  display: flex;
+  gap: 20px;
 .folders::before {
   content: "MY LIFE INTO FOLDERS";
   position: absolute;
@@ -1253,14 +1080,14 @@ font-family: "Inter", Arial, sans-serif;
   font-size: 11px;
   color: rgba(245, 220, 175, 0.45);
 }
-
+ 
 .folder-stack {
   position: relative;
   margin: 70px auto 30px;
   max-width: 880px;
   padding: 0 24px;
 }
-
+ 
 .folder {
   position: relative;
   display: block;
@@ -1278,7 +1105,7 @@ font-family: "Inter", Arial, sans-serif;
   transition: transform .35s ease, margin-top .35s ease, box-shadow .35s ease;
   /* Folder tab on top-right */
 }
-
+ 
 .folder::before {
   content: "";
   position: absolute;
@@ -1292,9 +1119,9 @@ font-family: "Inter", Arial, sans-serif;
     inset 0 1px 0 rgba(255,255,255,0.35),
     0 -2px 0 rgba(0,0,0,0.04);
 }
-
+ 
 .folder:first-child { margin-top: 0; }
-
+ 
 .folder.f-1 { background: #e7d6b4; }
 .folder.f-2 { background: #d8c8a8; }
 .folder.f-3 { background: var(--pink); }
@@ -1306,7 +1133,7 @@ font-family: "Inter", Arial, sans-serif;
 .folder.f-2::before { background: #d8c8a8; }
 .folder.f-1::before { background: #e7d6b4; }
 .folder.f-4::before { background: #c4ad88; }
-
+ 
 .folder .folder-tab-label {
   font-family: "Inter", Arial, sans-serif;
   font-size: 11px;
@@ -1315,17 +1142,15 @@ font-family: "Inter", Arial, sans-serif;
   color: var(--ink-soft);
   margin-bottom: 8px;
 }
-
+ 
 .folder h3 {
   font-family: "Playfair Display", Georgia, serif;
   font-size: 26px;
   margin: 2px 0 6px;
   font-weight: 700;
-color: var(--ink);
-  border: 1px solid var(--ink);
+  color: var(--ink);
 }
-
-/* ---------- Writing / Bookshelf (face-out covers) ---------- */
+ 
 /* Hidden body — revealed when folder is "pulled" */
 .folder-body {
   max-height: 0;
@@ -1338,7 +1163,7 @@ color: var(--ink);
   color: var(--ink-soft);
   margin-top: 0;
 }
-
+ 
 .folder:hover,
 .folder:focus,
 .folder.is-open {
@@ -1361,7 +1186,7 @@ color: var(--ink);
   opacity: 1;
   margin-top: 14px;
 }
-
+ 
 /* Decorative pieces inside folder */
 .folder .folder-deco {
   position: absolute;
@@ -1370,7 +1195,7 @@ color: var(--ink);
 }
 .folder .folder-deco.left  { left: 20%; }
 .folder .folder-deco.right { right: 16%; }
-
+ 
 .folder-hint {
   text-align: center;
   font-family: "Caveat", cursive;
@@ -1378,80 +1203,57 @@ color: var(--ink);
   color: rgba(245, 220, 175, 0.55);
   margin-top: 32px;
 }
-
+ 
 /* ============================================================
    WRITING — journal entries on aged paper
    ============================================================ */
 .shelf-wrap {
-  max-width: 1040px;
-  margin: 10px auto 0;
-  position: relative;
   max-width: 1080px;
   margin: 20px auto 60px;
-padding: 0 12px;
+  padding: 0 12px;
 }
-
+ 
 .shelf {
-display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-gap: 36px 28px;
-  padding: 30px 20px 50px;
+  gap: 36px 28px;
   padding: 20px 6px 40px;
-justify-items: center;
+  justify-items: center;
 }
-
-.shelf-base {
-  height: 14px;
-  background: linear-gradient(180deg, rgba(255,255,255,0.55), rgba(255,255,255,0.15));
-  border-radius: 2px;
-  box-shadow: 0 10px 22px rgba(90, 105, 125, 0.25);
-  margin: -10px auto 40px;
-  max-width: 1000px;
-}
+ 
 .shelf-base { display: none; } /* legacy hide */
-
+ 
 /* Each "book" is now a journal-entry card */
 .book {
-position: relative;
-  width: 190px;
-  height: 270px;
-  border-radius: 2px 6px 6px 2px;
+  width: 80px;
+  height: 200px;
+  background: #cddceb;
+  border-radius: 6px;
+  transform: rotate(-10deg);
+  transition: 0.3s;
+  position: relative;
   width: 100%;
   max-width: 280px;
   min-height: 320px;
   padding: 30px 26px 28px;
   background: var(--paper-soft);
   border-radius: 2px;
-text-decoration: none;
-  color: inherit;
-  font-family: "Playfair Display", Georgia, serif;
-  padding: 28px 22px 22px 30px;
+  text-decoration: none;
   color: var(--ink);
   box-shadow: var(--shadow-soft);
   transition: transform .3s ease, box-shadow .3s ease;
-display: flex;
-flex-direction: column;
-justify-content: space-between;
-  transition: transform .28s ease, box-shadow .28s ease;
-  cursor: pointer;
-  box-shadow:
-    -6px 0 0 rgba(0,0,0,0.12),
-    4px 10px 24px rgba(40, 55, 75, 0.28);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   border: 1px solid rgba(120, 90, 50, 0.12);
 }
-
-/* thin pages edge on the right */
-.book::after {
+ 
+.book:nth-child(2) {
+  transform: rotate(5deg);
 .book::before {
   /* Lined-paper subtle horizontal rules */
-content: "";
-position: absolute;
-  top: 6px; bottom: 6px; right: 2px;
-  width: 3px;
-  background: linear-gradient(180deg, rgba(255,255,255,0.7), rgba(0,0,0,0.08));
-  border-radius: 1px;
-  opacity: 0.6;
+  content: "";
+  position: absolute;
   inset: 70px 24px 24px;
   background: repeating-linear-gradient(
     0deg,
@@ -1460,19 +1262,12 @@ position: absolute;
   );
   pointer-events: none;
 }
-
-/* decorative rule above the title */
-.book::before {
+ 
+.book:nth-child(3) {
 .book::after {
   /* Tape strip at top */
-content: "";
-position: absolute;
-  top: 22px;
-  left: 30px;
-  right: 22px;
-  height: 1px;
-  background: currentColor;
-  opacity: 0.35;
+  content: "";
+  position: absolute;
   top: -10px;
   left: 30%;
   width: 90px;
@@ -1481,18 +1276,8 @@ position: absolute;
   transform: rotate(-3deg);
   box-shadow: 0 2px 4px rgba(60, 40, 20, 0.15);
 }
-
+ 
 .book .cover-title {
-  font-size: 19px;
-  line-height: 1.22;
-  font-weight: 700;
-  font-style: italic;
-  letter-spacing: -0.005em;
-  margin-top: 18px;
-  overflow: hidden;
-  display: -webkit-box;
-  -webkit-line-clamp: 5;
-  -webkit-box-orient: vertical;
   font-family: "Caveat", cursive;
   font-size: 30px;
   line-height: 1.05;
@@ -1502,43 +1287,27 @@ position: absolute;
   position: relative;
   z-index: 2;
 }
-
+ 
 .book .cover-by {
-font-family: "Inter", Arial, sans-serif;
-  font-size: 11px;
+  font-family: "Inter", Arial, sans-serif;
   font-size: 10px;
-font-weight: 500;
-text-transform: uppercase;
-  letter-spacing: 0.14em;
-  opacity: 0.75;
-  border-top: 1px solid currentColor;
+  font-weight: 500;
+  text-transform: uppercase;
   letter-spacing: 0.22em;
   color: var(--ink-soft);
   border-top: 1px solid var(--rule);
-padding-top: 10px;
-margin-top: 10px;
+  padding-top: 10px;
+  margin-top: 10px;
   position: relative;
   z-index: 2;
 }
-
+ 
 .book:hover {
-  transform: translateY(-10px) rotate(0deg);
-  box-shadow:
-    -6px 0 0 rgba(0,0,0,0.14),
-    6px 18px 30px rgba(40, 55, 75, 0.35);
+  transform: translateY(-10px);
   transform: translateY(-6px) rotate(-0.6deg);
   box-shadow: var(--shadow-deep);
 }
-
-/* Warm, muted book cover palette that matches the sky */
-.book.c-1 { background: #e9d8c4; color: #5b3826; }          /* cream */
-.book.c-2 { background: #d9c7b3; color: #4a3320; }          /* tan */
-.book.c-3 { background: #c9b89a; color: #3c2a16; }          /* khaki */
-.book.c-4 { background: #f3e7b9; color: #5a4410; }          /* butter */
-.book.c-5 { background: #cdb9a0; color: #3a2614; }          /* sand */
-.book.c-6 { background: #a9b9a5; color: #24362a; }          /* sage */
-.book.c-7 { background: #b8c4d0; color: #24354a; }          /* dusty blue */
-.book.c-8 { background: #e2cfc0; color: #4b2e1c; }          /* blush */
+ 
 /* Soft scrapbook palette tints */
 .book.c-1 { background: #f5ead2; }   /* cream */
 .book.c-2 { background: #e3dcc4; }   /* khaki */
@@ -1548,48 +1317,28 @@ margin-top: 10px;
 .book.c-6 { background: #d1d6c0; color: var(--ink); }   /* sage */
 .book.c-7 { background: #cfd5c2; }
 .book.c-8 { background: #ead7cd; }
-
-/* Subtle tilts, smaller variance */
+ 
 .book.tilt-l { transform: rotate(-2deg); }
 .book.tilt-r { transform: rotate(2deg); }
-.book.tilt-l:hover { transform: rotate(0deg) translateY(-10px); }
-.book.tilt-r:hover { transform: rotate(0deg) translateY(-10px); }
-
-.book.short { height: 250px; }
-.book.tall  { height: 290px; }
-.book.thick { width: 205px; }
 .book.tilt-l:hover { transform: rotate(0deg) translateY(-6px); }
 .book.tilt-r:hover { transform: rotate(0deg) translateY(-6px); }
 .book.short { min-height: 280px; }
 .book.tall  { min-height: 360px; }
 .book.thick { padding: 30px 28px; }
-
-.book.placeholder {
-  background: repeating-linear-gradient(45deg, #e6ddd1 0 10px, #d8cfc1 10px 20px);
-  color: #5a4630;
-}
+ 
 .book.placeholder { background: #ece2cd; color: var(--ink-soft); }
-
-/* ---------- Post / reading page ---------- */
+ 
 /* ============================================================
    POST — full essay as journal page
    ============================================================ */
 .post {
-  max-width: 720px;
   max-width: 760px;
-margin: 0 auto;
-  padding: 40px 24px 80px;
+  margin: 0 auto;
   padding: 30px 24px 80px;
 }
-
+ 
 .post-paper {
-  background: #fdfcf7;
-  padding: 56px 48px;
-  border-radius: 4px;
-  box-shadow: 0 18px 40px rgba(0,0,0,0.18);
-  font-family: "Cormorant Garamond", "Playfair Display", Georgia, serif;
-  color: var(--ink);
-position: relative;
+  position: relative;
   background: var(--paper-soft);
   padding: 64px 60px 72px;
   border-radius: 2px;
@@ -1605,31 +1354,21 @@ position: relative;
     );
   background-position: 0 130px;
 }
-
+ 
 .post-paper::before,
 .post-paper::after {
-content: "";
-position: absolute;
-top: -14px;
-  width: 90px;
+  content: "";
+  position: absolute;
+  top: -14px;
   width: 100px;
-height: 22px;
-background: var(--tape);
-  box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+  height: 22px;
+  background: var(--tape);
   box-shadow: 0 2px 4px rgba(60, 40, 20, 0.15);
 }
-
-.post-paper::before { left: 28px; transform: rotate(-3deg); }
-.post-paper::after  { right: 28px; transform: rotate(2deg); }
 .post-paper::before { left: 32px; transform: rotate(-3deg); }
 .post-paper::after  { right: 32px; transform: rotate(2deg); }
-
+ 
 .post-paper h1 {
-  font-family: "Playfair Display", Georgia, serif;
-  font-size: clamp(32px, 5vw, 48px);
-  margin: 0 0 8px;
-  line-height: 1.1;
-  letter-spacing: -0.01em;
   font-family: "Caveat", cursive;
   font-size: clamp(40px, 6vw, 60px);
   margin: 0 0 6px;
@@ -1637,29 +1376,22 @@ background: var(--tape);
   color: var(--brown);
   font-weight: 400;
 }
-
+ 
 .post-meta {
-font-family: "Inter", Arial, sans-serif;
-  font-size: 13px;
+  font-family: "Inter", Arial, sans-serif;
   font-size: 11px;
-text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: #888;
-  margin-bottom: 28px;
+  text-transform: uppercase;
   letter-spacing: 0.2em;
   color: var(--ink-soft);
   margin-bottom: 30px;
 }
-
+ 
 .post-paper p {
-  font-size: 19px;
-  line-height: 1.65;
   font-size: 18px;
   line-height: 1.85;
-margin: 0 0 18px;
+  margin: 0 0 18px;
 }
-
-.post-paper p strong { color: var(--ink); }
+ 
 .post-paper p:first-of-type::first-letter {
   font-family: "Playfair Display", Georgia, serif;
   font-size: 52px;
@@ -1668,155 +1400,84 @@ margin: 0 0 18px;
   padding: 4px 10px 0 0;
   color: var(--brown);
 }
-
+ 
 .post-footer {
-margin-top: 36px;
-@@ -511,130 +1366,121 @@ a { color: inherit; }
-justify-content: space-between;
-align-items: center;
-font-family: "Inter", Arial, sans-serif;
-  font-size: 14px;
-}
-
-/* ---------- Projects ---------- */
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 28px;
-  margin-top: 20px;
+  margin-top: 36px;
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  font-family: "Inter", Arial, sans-serif;
   font-size: 12px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   border-top: 1px solid var(--rule);
   padding-top: 22px;
 }
-
-.project-card {
-  background: #fff;
-  border-radius: 6px;
-  padding: 16px 16px 22px;
-  box-shadow: 0 12px 28px rgba(0,0,0,0.1);
+ 
 /* ============================================================
    RESUME — folder-framed PDF
    ============================================================ */
 .resume-wrap {
   max-width: 920px;
   margin: 0 auto;
-position: relative;
-  transition: transform .25s ease;
+  position: relative;
   background: var(--kraft);
   padding: 50px 32px 36px;
   border-radius: 6px 18px 4px 4px;
   box-shadow: var(--shadow-deep);
 }
-
-.project-card:hover { transform: translateY(-4px); }
-
-.project-card::before {
-  content: "";
 .resume-wrap::before {
   content: "RESUME / 2026";
-position: absolute;
-  top: -12px;
-  left: 24px;
-  width: 90px;
-  height: 22px;
-  background: var(--tape);
-  transform: rotate(-3deg);
-  box-shadow: 0 2px 4px rgba(0,0,0,0.08);
-}
-
-.project-card .cover {
-  height: 170px;
-  border-radius: 3px;
-  margin-bottom: 14px;
-}
-
-.project-card h3 {
-  font-family: "Playfair Display", Georgia, serif;
-  font-size: 22px;
-  margin: 6px 0 4px;
-  font-weight: 700;
-}
-
-.project-card .role {
-  font-family: "Inter", Arial, sans-serif;
-  font-size: 12px;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: #888;
-  margin-bottom: 10px;
-}
-
-.project-card p {
+  position: absolute;
   top: -22px;
   right: 30px;
   width: 200px;
   height: 28px;
   background: var(--kraft);
   border-radius: 6px 22px 0 0;
-font-family: "Inter", Arial, sans-serif;
-  font-size: 14px;
-  line-height: 1.55;
+  font-family: "Inter", Arial, sans-serif;
   font-size: 11px;
   letter-spacing: 0.28em;
-color: var(--ink-soft);
-  margin: 0;
-}
-
-/* ---------- Resume (PDF embed) ---------- */
-.resume-wrap {
-  max-width: 900px;
-  margin: 0 auto;
+  color: var(--ink-soft);
   display: flex;
   align-items: center;
   justify-content: center;
 }
-
+ 
 .resume-actions {
-display: flex;
-gap: 14px;
-flex-wrap: wrap;
-justify-content: center;
-  margin-bottom: 28px;
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  justify-content: center;
   margin-bottom: 24px;
 }
-
+ 
 .pdf-frame {
-width: 100%;
-height: min(1100px, 85vh);
-  border: 1px solid rgba(26, 26, 26, 0.15);
-  border-radius: 4px;
+  width: 100%;
+  height: min(1100px, 85vh);
   border: 1px solid rgba(120, 90, 50, 0.3);
   border-radius: 2px;
-background: #fff;
-  box-shadow: 0 12px 30px rgba(0,0,0,0.12);
-  box-shadow: 0 10px 24px rgba(0,0,0,0.18);
-display: block;
-}
-
-.pdf-fallback {
   background: #fff;
-  background: var(--paper-soft);
-padding: 24px;
-  border-radius: 4px;
-  border-radius: 2px;
-font-family: "Inter", Arial, sans-serif;
-font-size: 14px;
-text-align: center;
-color: var(--ink-soft);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.18);
+  display: block;
 }
-
-/* ---------- Footer ---------- */
+.pdf-fallback {
+  background: var(--paper-soft);
+  padding: 24px;
+  border-radius: 2px;
+  font-family: "Inter", Arial, sans-serif;
+  font-size: 14px;
+  text-align: center;
+  color: var(--ink-soft);
+}
+ 
 /* ============================================================
    Footer
    ============================================================ */
 .footer {
-text-align: center;
-  padding: 40px 20px 30px;
-  font-family: "Inter", Arial, sans-serif;
-  font-size: 13px;
-  color: var(--ink-soft);
+  text-align: center;
   padding: 36px 20px 36px;
   font-family: "Caveat", cursive;
   font-size: 22px;
@@ -1829,21 +1490,11 @@ text-align: center;
   border-bottom: 1px dashed var(--olive);
 }
 .footer a:hover { color: var(--leather-warm); }
-
-.footer a { color: var(--ink); text-decoration: none; margin: 0 8px; }
-.footer a:hover { text-decoration: underline; }
-
-/* ---------- Responsive ---------- */
+ 
 /* ============================================================
    Responsive
    ============================================================ */
 @media (max-width: 860px) {
-  .about-grid { grid-template-columns: 1fr; }
-  .hero { min-height: 0; padding-bottom: 40px; }
-  .collage { display: none; }
-  .hero-title { margin-top: 20px; }
-  .post-paper { padding: 40px 24px; }
-  .resume-card { padding: 28px 22px; }
   .spread {
     grid-template-columns: 1fr;
     background: linear-gradient(180deg, #efe3c8, #efe3c8);
@@ -1860,13 +1511,8 @@ text-align: center;
   .folder-stack { padding: 0 14px; }
   .folder { padding: 22px 22px; }
 }
-
+ 
 @media (max-width: 520px) {
-  .nav a { padding: 8px 16px; font-size: 13px; }
-  .shelf { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 24px 18px; }
-  .book { width: 100%; max-width: 180px; height: 240px; padding: 22px 18px 18px 24px; }
-  .book.thick { width: 100%; max-width: 190px; }
-  .book .cover-title { font-size: 17px; }
   .nav { gap: 4px; }
   .nav a { padding: 7px 14px 9px; font-size: 11px; letter-spacing: 0.14em; }
   .cover-grid { height: auto; min-height: 360px; }
