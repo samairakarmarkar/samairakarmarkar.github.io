@@ -495,20 +495,138 @@ a { color: inherit; }
 }
 
 .cover-open-cta {
-  position: absolute;
-  bottom: 28px;
-  right: 70px;
-  margin: 0;
+  text-align: center;
+  margin: 26px auto 8px;
+  max-width: 980px;
   font-family: "Caveat", cursive;
-  font-size: 22px;
-  color: rgba(246, 236, 210, 0.7);
-  z-index: 4;
+  font-size: 24px;
+  color: #f4ead0;
 }
 .cover-open-cta a {
   color: #f4d98e;
   text-decoration: underline;
   text-decoration-style: wavy;
   text-decoration-color: rgba(244, 217, 142, 0.7);
+}
+
+/* ============================================================
+   HOME — actual photographed scrapbook cover (current home page)
+   Uses the reference image directly with a blank cream mask
+   over the portrait area so a real photo can be added later.
+   ============================================================ */
+.cover-photo {
+  position: relative;
+  display: block;
+  max-width: 980px;
+  margin: 28px auto 0;
+  aspect-ratio: 735 / 433;
+  background-image: url("images/cover-linen.jpg");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  border-radius: 4px;
+  box-shadow:
+    0 36px 70px rgba(15, 8, 4, 0.55),
+    0 2px 0 rgba(255, 235, 200, 0.06);
+  overflow: hidden;
+}
+
+/* Blank cream rectangle covering the portrait of the man.
+   Positioned in % so it scales with the section. */
+.cover-photo__mask {
+  position: absolute;
+  /* match the photographed portrait inside the silver frame */
+  left: 21.0%;
+  top: 22.5%;
+  width: 30.0%;
+  height: 49.0%;
+  background:
+    radial-gradient(ellipse at 50% 35%, #f5e7c5 0%, #ddc395 75%, #b89a64 100%);
+  box-shadow:
+    inset 0 0 18px rgba(80, 50, 20, 0.35),
+    inset 0 0 0 1px rgba(70, 45, 15, 0.5),
+    2px 4px 10px rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+/* Brown linen patch that hides the original printed text on the right
+   side of the photographed scrapbook ('Adirael G'odoard' etc.) */
+.cover-photo__text-cover {
+  position: absolute;
+  left: 71%;
+  top: 17%;
+  width: 27%;
+  height: 28%;
+  z-index: 2;
+  background-color: #5a3c28;
+  background-image:
+    repeating-linear-gradient(
+      90deg,
+      rgba(0,0,0,0.20) 0 1px,
+      rgba(255,235,200,0.06) 1px 2px,
+      rgba(0,0,0,0.13) 2px 3px,
+      transparent 3px 4px
+    ),
+    repeating-linear-gradient(
+      0deg,
+      rgba(0,0,0,0.18) 0 1px,
+      rgba(255,235,200,0.05) 1px 2px,
+      rgba(0,0,0,0.10) 2px 3px,
+      transparent 3px 4px
+    ),
+    radial-gradient(ellipse at 30% 30%, rgba(255,210,160,0.08) 0%, transparent 70%),
+    linear-gradient(140deg, #6b4a32 0%, #4a311f 60%, #3a2516 100%);
+  /* feathered edges so the patch blends with the surrounding linen */
+  -webkit-mask-image: radial-gradient(ellipse at center, #000 60%, transparent 100%);
+          mask-image: radial-gradient(ellipse at center, #000 60%, transparent 100%);
+  pointer-events: none;
+}
+.cover-photo__mask-hint {
+  font-family: "Caveat", cursive;
+  color: rgba(70, 45, 18, 0.5);
+  font-size: 16px;
+  letter-spacing: 0.04em;
+  text-align: center;
+  padding: 0 10px;
+}
+
+/* Right-side title overlay replacing 'Adirael G'odoard' text */
+.cover-photo__title {
+  position: absolute;
+  top: 19%;
+  left: 73.5%;
+  right: 5%;
+  z-index: 3;
+  color: #f1ead8;
+  text-align: left;
+}
+.cover-photo__title h1 {
+  font-family: "Cormorant Garamond", "Playfair Display", Georgia, serif;
+  font-weight: 500;
+  font-size: clamp(20px, 3.6vw, 38px);
+  line-height: 1.05;
+  margin: 0;
+  letter-spacing: 0.01em;
+  color: #f1ead8;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.45);
+}
+.cover-photo__title p {
+  margin: 14px 0 0;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-style: italic;
+  font-size: clamp(11px, 1.3vw, 14px);
+  letter-spacing: 0.04em;
+  color: rgba(241, 234, 216, 0.85);
+  line-height: 1.35;
+}
+
+@media (max-width: 720px) {
+  .cover-photo__mask-hint { font-size: 12px; }
+  .cover-photo__title h1 { font-size: 18px; }
+  .cover-photo__title p  { font-size: 10px; }
+  .cover-open-cta { font-size: 20px; }
 }
 
 /* Responsive: stack on narrow screens */
