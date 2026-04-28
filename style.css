@@ -923,7 +923,7 @@ a { color: inherit; }
   font-weight: 400;
 }
 .entry p { margin: 0 0 14px; }
-.entry p:first-letter {
+.entry p:first-of-type::first-letter {
   font-family: "Playfair Display", Georgia, serif;
   font-size: 38px;
   float: left;
@@ -1058,7 +1058,9 @@ a { color: inherit; }
 .folder {
   position: relative;
   display: block;
+  width: 100%;
   background: var(--kraft);
+  border: none;
   border-radius: 6px 18px 4px 4px;
   padding: 26px 36px 26px 32px;
   margin-top: -36px;
@@ -1067,6 +1069,8 @@ a { color: inherit; }
     inset 0 -2px 0 rgba(0,0,0,0.06),
     0 14px 26px rgba(0,0,0,0.35);
   text-decoration: none;
+  text-align: left;
+  font: inherit;
   color: var(--ink);
   cursor: pointer;
   transition: transform .35s ease, margin-top .35s ease, box-shadow .35s ease;
@@ -1152,6 +1156,20 @@ a { color: inherit; }
   max-height: 600px;
   opacity: 1;
   margin-top: 14px;
+}
+
+.folder-link {
+  display: block;
+  margin-top: 10px;
+  font-family: "Caveat", cursive;
+  font-size: 20px;
+}
+.folder-link a {
+  color: var(--brown);
+  text-decoration: underline;
+  text-decoration-style: wavy;
+  text-decoration-color: var(--olive);
+  text-underline-offset: 4px;
 }
 
 /* Decorative pieces inside folder */
