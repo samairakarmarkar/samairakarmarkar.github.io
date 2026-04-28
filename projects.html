@@ -39,17 +39,15 @@
         </div>
       </button>
 
-      <div class="folder-with-link">
-        <button type="button" class="folder f-2" data-folder>
-          <div class="folder-tab-label">writing</div>
-          <h3>Essays on Medium</h3>
-          <div class="folder-body">
-            Short essays on systems, risk, fairness, and the quiet mechanics of
-            everyday value — arranged on the writing page as a small bookshelf
-            so each piece reads like its own little book.
-            <span class="folder-link"><a href="writing.html">→ open the writing page</a></span>
-          </div>
-        </button>
+      <div class="folder f-2" role="button" tabindex="0" data-folder aria-expanded="false">
+        <div class="folder-tab-label">writing</div>
+        <h3>Essays on Medium</h3>
+        <div class="folder-body">
+          Short essays on systems, risk, fairness, and the quiet mechanics of
+          everyday value — arranged on the writing page as a small bookshelf
+          so each piece reads like its own little book.
+          <span class="folder-link"><a href="writing.html">→ open the writing page</a></span>
+        </div>
       </div>
 
       <button type="button" class="folder f-3" data-folder>
@@ -109,10 +107,19 @@
 <script>
   // Toggle folder open/closed (in addition to the :hover state)
   document.querySelectorAll('[data-folder]').forEach(el => {
-    el.addEventListener('click', e => {
-      // Don't intercept clicks on inner links
+    const toggle = e => {
       if (e.target.tagName === 'A') return;
       el.classList.toggle('is-open');
+      if (el.getAttribute('role') === 'button') {
+        el.setAttribute('aria-expanded', el.classList.contains('is-open'));
+      }
+    };
+    el.addEventListener('click', toggle);
+    el.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        toggle(e);
+      }
     });
   });
 </script>
